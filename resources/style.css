@@ -6,12 +6,12 @@
   flex-direction: column;
   align-items: stretch;
 }
-.weeks > .header {
+.weeks .header {
   display: flex;
   font-size: 10pt;
   margin-bottom: 2px;
 }
-.weeks > .header > * {
+.weeks .header > * {
   background-color: lightgray;
   border-radius: 2px;
   box-sizing: border-box;
@@ -21,6 +21,7 @@
 }
 .week {
   display: flex;
+  flex-direction: column;
   border-bottom-style: solid;
   margin-bottom: 5px;
   padding-bottom: 5px;
@@ -44,7 +45,7 @@
   margin-right: 2px;
   margin-top: 1px;
 }
-.weeks > .header > * {
+.weeks .header > * {
   margin-right: 2px;
 }
 .week > .content > .moment {
@@ -117,13 +118,20 @@
   visibility: visible;
 }
 
-.empty-week {
+.week-header {
+  display: flex;
+}
+.week-header > .actions {
+  flex-grow: 1;
   display: flex;
   justify-content: center;
 }
-.empty-week > * {
+.week-header > .actions > * {
   margin-right: 10px;
   margin-left: 10px;
+}
+.week-header > .actions > button {
+  white-space: nowrap;
 }
 
 option.default {

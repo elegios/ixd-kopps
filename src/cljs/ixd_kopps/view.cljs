@@ -43,25 +43,28 @@
   [week-num]
   (let [{:keys [number num-moments]} (query :week week-num)]
     [:div.week
-     [:div.number (str "v" number)]
-     [:div.content
+     [:div.week-header
+      [:div.number (str "v" number)]
       (if (pos? num-moments)
-        (for [num (range num-moments)]
-          ^{:key num} [week-moment week-num num])
-        [:div.empty-week
+        [:div.actions
+         [:button "Kopiera till övriga veckor"]]
+        [:div.actions
          (moment-kind-select)
-         (week-copy-source)])]]))
+         (week-copy-source)])]
+     (when (pos? num-moments)
+       [:div.content
+        [:div.header
+         [:div.kind "Moment"]
+         [:div.duration "Timmar"]
+         [:div.groups "Grupper"]
+         [:div.simultaneous "Samtidigt"]
+         [:div.teachers "Lärare"]
+         [:div.comment "Kommentar"]
+         [:div.own-room "Egen sal"]]
+        (for [num (range num-moments)]
+          ^{:key num} [week-moment week-num num])])]))
 
 (defn main []
   [:div.weeks
-    [:div.header
-     [:div.number "Vecka"]
-     [:div.kind "Moment"]
-     [:div.duration "Timmar"]
-     [:div.groups "Grupper"]
-     [:div.simultaneous "Samtidigt"]
-     [:div.teachers "Lärare"]
-     [:div.comment "Kommentar"]
-     [:div.own-room "Egen sal"]]
     (for [num (range (query :num-weeks))]
       ^{:key num} [week num])])
