@@ -25,3 +25,15 @@
     (subscribe [:selected-course-instance]))
   (fn [instance [_ week-num num]]
     (get-in instance [:schedule week-num num])))
+
+(reg-sub :copiable-weeks
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
+  (fn [{:keys [schedule start]} _]
+    (let [start-week-num (:week-num start)]
+      (keep-indexed
+        (fn [idx moments]
+          (when (not-empty moments)
+             {:week-num (+ start-week-num idx)
+              :num idx}))
+        schedule))))

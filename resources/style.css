@@ -116,3 +116,16 @@
 .moment:hover .actions > .hovered {
   visibility: visible;
 }
+
+.empty-week {
+  display: flex;
+  justify-content: center;
+}
+.empty-week > * {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+option.default {
+  display: none;
+}

@@ -6,10 +6,12 @@
   @(rf/subscribe (apply vector sub args)))
 
 (defn moment-kind-select
-  [selected]
-  [:select {:default-value selected}
-   [:option {:value :lecture} "Lecture"]
-   [:option {:value :seminar} "Seminar"]])
+  ([] (moment-kind-select nil))
+  ([selected]
+   [:select {:default-value (if selected selected -1)}
+    [:option.default {:value -1} "Nytt moment..."]
+    [:option {:value :lecture} "Lecture"]
+    [:option {:value :seminar} "Seminar"]]))
 
 (defn week-moment
   [week-num num]
@@ -31,14 +33,24 @@
        [:span.button "⊕"]
        [:span.button "✘"]]]]))
 
+(defn week-copy-source []
+  [:select {:default-value -1}
+    [:option {:value -1} "Kopiera från vecka..."]
+    (for [{:keys [week-num num]} (query :copiable-weeks)]
+      ^{:key num} [:option {:value num} (str "v" week-num)])])
+
 (defn week
   [week-num]
   (let [{:keys [number num-moments]} (query :week week-num)]
     [:div.week
      [:div.number (str "v" number)]
      [:div.content
-      (for [num (range num-moments)]
-        ^{:key num} [week-moment week-num num])]]))
+      (if (pos? num-moments)
+        (for [num (range num-moments)]
+          ^{:key num} [week-moment week-num num])
+        [:div.empty-week
+         (moment-kind-select)
+         (week-copy-source)])]]))
 
 (defn main []
   [:div.weeks
