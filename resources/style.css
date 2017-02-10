@@ -1,0 +1,97 @@
+.weeks {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.weeks > .header {
+  display: flex;
+  font-size: 10pt;
+  margin-bottom: 2px;
+}
+.weeks > .header > * {
+  background-color: lightgray;
+  box-sizing: border-box;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 2px;
+}
+.week {
+  display: flex;
+  border-bottom-style: solid;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+.weeks .number {
+  width: 40px;
+}
+.week > .number {
+  text-align: center;
+  margin-right: 2px;
+}
+.week > .content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.week > .content > .moment {
+  margin-bottom: 2px;
+}
+.week > .content > .moment > * {
+  margin-right: 2px;
+  margin-top: 1px;
+}
+.weeks > .header > * {
+  margin-right: 2px;
+}
+.week > .content > .moment {
+  display: flex;
+}
+.weeks .kind {
+  width: 78px;
+}
+.weeks .duration {
+  width: 50px;
+  text-align: center;
+}
+.weeks .duration > input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+}
+.weeks .groups {
+  width: 50px;
+  text-align: center;
+}
+.weeks .groups > input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+}
+.weeks .simultaneous {
+  width: 60px;
+  text-align: left;
+}
+.weeks .teachers {
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.weeks .teachers > input[type=text] {
+  box-sizing: border-box;
+  width: 100%
+}
+.weeks .comment {
+  flex-grow: 1;
+  flex-basis: 0px;
+}
+.weeks .comment > input[type=text] {
+  box-sizing: border-box;
+  width: 100%
+}
+.weeks .own-room {
+  width: 50px;
+}
+.header .own-room {
+  float: right;
+  white-space: nowrap;
+}
