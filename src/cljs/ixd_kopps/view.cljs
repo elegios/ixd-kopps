@@ -24,7 +24,12 @@
         [:input {:type :checkbox :checked simultaneous}])]
      [:div.teachers [:input {:type :text :value (str teachers)}]]
      [:div.comment [:input {:type :text :value comment}]]
-     [:div.own-room [:input {:type :checkbox :checked own-room}]]]))
+     [:div.own-room [:input {:type :checkbox :checked own-room}]]
+     [:div.actions
+      [:div.hovered
+       [:span.button "⇅"]
+       [:span.button "⊕"]
+       [:span.button "✘"]]]]))
 
 (defn week
   [week-num]
