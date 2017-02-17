@@ -8,8 +8,21 @@
 (reg-sub :num-weeks
   (fn [_ _]
     (subscribe [:selected-course-instance]))
+  (fn [{:keys [schedule]} _]
+    (count schedule)))
+
+(reg-sub :max-weeks
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
   (fn [{:keys [duration]} _]
     duration))
+
+(reg-sub :can-add-weeks
+  (fn [_ _]
+    [(subscribe [:num-weeks])
+     (subscribe [:max-weeks])])
+  (fn [[num max] _]
+    (< num max)))
 
 (reg-sub :week
   (fn [_ _]

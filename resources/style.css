@@ -1,7 +1,7 @@
 .weeks {
   margin-left: auto;
   margin-right: auto;
-  width: 800px;
+  width: 755px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -12,7 +12,6 @@
   margin-bottom: 2px;
 }
 .weeks .header > * {
-  background-color: lightgray;
   border-radius: 2px;
   box-sizing: border-box;
   padding-left: 2px;
@@ -22,12 +21,13 @@
 .week {
   display: flex;
   flex-direction: column;
-  border-bottom-style: solid;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
+  border-style: solid;
+  border-color: #D9D9D9;
+  border-width: 1px;
+  margin-bottom: 15px;
 }
 .weeks .number {
-  width: 40px;
+  width: 70px;
 }
 .week > .number {
   text-align: center;
@@ -37,19 +37,26 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin: 5px;
+  margin-left: 10px;
 }
-.week > .content > .moment {
-  margin-bottom: 2px;
-}
-.week > .content > .moment > * {
-  margin-right: 2px;
+.week > .content > .moment > :not(.actions) {
+  margin-right: 10px;
   margin-top: 1px;
 }
-.weeks .header > * {
-  margin-right: 2px;
+.weeks .header > :not(.actions) {
+  margin-right: 10px;
 }
 .week > .content > .moment {
   display: flex;
+}
+.weeks input[type=number] {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
 }
 .weeks input[type=text] {
   width: 100%;
@@ -72,7 +79,7 @@
 }
 .weeks .simultaneous {
   width: 60px;
-  text-align: left;
+  text-align: center;
 }
 .weeks .teachers {
   flex-grow: 1;
@@ -84,34 +91,29 @@
 }
 .weeks .own-room {
   width: 50px;
+  text-align: center;
 }
-.header .own-room {
-  float: right;
-  white-space: nowrap;
+.content > .moment > .actions {
+  margin-right: 0px;
 }
-.weeks .actions {
-  position: relative;
-  left: 0px;
-  width: 0px;
-  margin: 0px;
+.actions {
+  width: 70px;
+  text-align: right;
+  margin-right: 2px;
 }
 .actions > .hovered {
-  position: absolute;
-  left: 0px;
   visibility: hidden;
   z-index: 1;
-
-  background-color: lightgray;
-  border-radius: 4px;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 2px;
 }
-.actions > .hovered > .button {
-  width: 16px;
-  text-align: center;
+.actions img {
+  height: 17px;
   margin-left: 2px;
-  margin-right: 2px;
+}
+.actions img.disabled {
+  cursor: auto;
+  opacity: 0.4;
+}
+.actions img:not(.disabled) {
   cursor: pointer;
 }
 .moment:hover .actions > .hovered {
@@ -120,15 +122,19 @@
 
 .week-header {
   display: flex;
+  background-color: #8DC4ED;
+  font-size: 12pt;
+  font-family: georgia;
+  padding: 5px;
+  cursor: grab;
+}
+.week-header:active {
+  cursor: grabbing;
 }
 .week-header > .actions {
   flex-grow: 1;
   display: flex;
-  justify-content: center;
-}
-.week-header > .actions > * {
-  margin-right: 10px;
-  margin-left: 10px;
+  justify-content: end;
 }
 .week-header > .actions > button {
   white-space: nowrap;
@@ -136,4 +142,17 @@
 
 option.default {
   display: none;
+}
+
+.end-of-schedule {
+  display: flex;
+  justify-content: center;
+}
+.add-new-week {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #B0C92B;
+  border-radius: 10px;
+  cursor: pointer;
 }

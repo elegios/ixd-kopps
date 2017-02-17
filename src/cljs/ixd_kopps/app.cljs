@@ -5,6 +5,8 @@
             [ixd-kopps.subscription :as subscription]
             [ixd-kopps.event :as event]))
 
+(enable-console-print!)
+
 (defn init []
   (dispatch-sync [:initialize])
   (reagent/render-component [view/main]
