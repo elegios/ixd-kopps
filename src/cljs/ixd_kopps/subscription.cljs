@@ -17,6 +17,12 @@
   (fn [{:keys [duration]} _]
     duration))
 
+(reg-sub :number-of-students
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
+  (fn [{:keys [number-of-students]} _]
+    number-of-students))
+
 (reg-sub :can-add-weeks
   (fn [_ _]
     [(subscribe [:num-weeks])

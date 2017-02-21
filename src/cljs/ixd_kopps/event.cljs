@@ -7,7 +7,7 @@
    :duration 2
    :groups 1
    :simultaneous true
-   :teachers #{}
+   :teachers "Ylva Fernaeus"
    :comment ""
    :own-room false})
 
@@ -16,7 +16,16 @@
    :duration 2
    :groups 2
    :simultaneous true
-   :teachers #{}
+   :teachers ""
+   :comment ""
+   :own-room false})
+
+(def exercise
+  {:kind :exercise
+   :duration 2
+   :groups 2
+   :simultaneous true
+   :teachers ""
    :comment ""
    :own-room false})
 
@@ -24,17 +33,29 @@
   [kind]
   (case kind
     :lecture lecture
-    :seminar seminar))
+    :seminar seminar
+    :exercise exercise))
 
 (def schedule
-  [[seminar lecture]
-   [lecture seminar]])
+  [[lecture lecture]
+   [lecture]
+   [lecture lecture seminar]
+   [lecture lecture exercise]
+   [lecture lecture seminar]
+   [lecture exercise]
+   []
+   [lecture lecture exercise]
+   [lecture seminar]
+   [lecture lecture exercise]
+   [lecture seminar]
+   [lecture lecture exercise]])
 
 (def course-instance
   {:start {:week-num 3 :year 2017 :term "VT17"}
    :ladok-num 1
-   :duration 5
-   :schedule schedule})
+   :duration 12
+   :schedule schedule
+   :number-of-students 0})
 
 (def course
   {:instances [course-instance]})
@@ -44,6 +65,13 @@
     {:selected-course "DD2628"
      :selected-instance 0
      :courses {"DD2628" course}}))
+
+(reg-event-db :update-number-of-students
+  (fn [db [_ number-of-students]]
+    (let [{:keys [selected-course selected-instance]} db]
+      (setval [:courses (must selected-course) :instances (must selected-instance) :number-of-students]
+              number-of-students
+              db))))
 
 (reg-event-db :update-kind
   (fn [db [_ week-num num kind]]
@@ -71,6 +99,13 @@
     (let [{:keys [selected-course selected-instance]} db]
       (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :comment]
               comment
+              db))))
+
+(reg-event-db :update-teachers
+  (fn [db [_ week-num num teachers]]
+    (let [{:keys [selected-course selected-instance]} db]
+      (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :teachers]
+              teachers
               db))))
 
 (reg-event-db :toggle-simultaneous

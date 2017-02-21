@@ -14,7 +14,8 @@
                           #(dispatch [:new-moment-at week-num 0 (-> % .-target .-value keyword)]))}
     [:option.default {:value -1} ""]
     [:option {:value :lecture} "Lecture"]
-    [:option {:value :seminar} "Seminar"]]))
+    [:option {:value :seminar} "Seminar"]
+    [:option {:value :exercise} "Exercise"]]))
 
 (defn week-moment
   [week-num num]
@@ -29,7 +30,8 @@
       (when (> groups 1)
         [:input {:type :checkbox :checked simultaneous
                  :on-change #(dispatch [:toggle-simultaneous week-num num])}])]
-     [:div.teachers [:input {:type :text :value (str teachers)}]]
+     [:div.teachers [:input {:type :text :value (str teachers)
+                             :on-change #(dispatch [:update-teachers week-num num (-> % .-target .-value)])}]]
      [:div.comment [:input {:type :text :value comment
                             :on-change #(dispatch [:update-comment week-num num (-> % .-target .-value)])}]]
      [:div.own-room [:input {:type :checkbox :checked own-room
@@ -37,11 +39,14 @@
      [:div.actions
       [:div.hovered
        [:img {:src "img/add.svg"
-              :on-click #(dispatch [:new-moment-at week-num (inc num) :lecture])}]
+              :on-click #(dispatch [:new-moment-at week-num (inc num) :lecture])
+              :title "Lägg till nytt moment"}]
        [:img {:src "img/duplicate.svg"
-              :on-click #(dispatch [:duplicate-moment week-num num])}]
+              :on-click #(dispatch [:duplicate-moment week-num num])
+              :title "Kopiera moment"}]
        [:img {:src "img/trash.svg"
-              :on-click #(dispatch [:remove-moment-at week-num num])}]]]]))
+              :on-click #(dispatch [:remove-moment-at week-num num])
+              :title "Ta bort moment"}]]]]))
 
 (defn new-week-moment
   [week-num]
@@ -70,15 +75,16 @@
       [:div.number (str "Vecka " number)]
       [:div.actions
        [:img {:src "img/add.svg"
-              :title (when-not can-add-weeks "Schemaplaneringen är full")
+              :title (if can-add-weeks "Lägg till vecka" "Schemaplaneringen är full")
               :class (when-not can-add-weeks "disabled")
               :on-click (when can-add-weeks #(dispatch [:new-week-at (inc week-num)]))}]
        [:img {:src "img/duplicate.svg"
-              :title (when-not can-add-weeks "Schemaplaneringen är full")
+              :title (if can-add-weeks "Kopiera vecka" "Schemaplaneringen är full")
               :class (when-not can-add-weeks "disabled")
               :on-click (when can-add-weeks #(dispatch [:duplicate-week week-num]))}]
        [:img {:src "img/trash.svg"
-              :on-click #(dispatch [:remove-week-at week-num])}]]]
+              :on-click #(dispatch [:remove-week-at week-num])
+              :title "Ta bort vecka"}]]]
      [:div.content
       [:div.header
        [:div.kind "Moment"]
