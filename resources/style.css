@@ -87,9 +87,9 @@ border-radius: 20px 20px 0px 0px;
 width: 200px;
 border-bottom: 1px solid #CCCCCC;
 }
-.menu li a:hover, .menu li a.active{
+.menu li a:hover, .menu li.selected a{
 background: #FFFFFF;
-border-bottom: black 2px solid;
+border-bottom: black 1px solid;
 font-weight: normal;
 opacity: 1.0;
 }
@@ -155,52 +155,50 @@ margin: 0px 0px 10px 0px;
 
 #searchDiv {
 background: #FFFFFF;
-border-top-style: solid;
-border.border-top-width: 2px;
-border-color:#CCCCCC;
 height: 100%;
 width: 80%;
-padding: 10px 10px 10px 10px;
+margin-bottom:20px;
 }
 
 #textInput1{
-  width: 60px;
-  box-sizing: border-box;
-  border-radius: 3px;
-  border-style: solid;
-  border-color: gray;
-  border-width: 1px;
+width: 60px;
+box-sizing: border-box;
+border-radius: 3px;
+border-style: solid;
+border-color: gray;
+border-width: 1px;
 }
 
 #textPeriod{
-  margin-left: 20px;
+margin-left: 20px;
 }
 
 #selectPeriod{
-  margin-right: 20px;
+margin-right: 20px;
 }
 #searchButton{
-  border-radius: 3px;
+border-radius: 3px;
 }
 
 #searchNewCourse {
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #B0C92B;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 40px;
-  height: 30px;
-  float: right;
-}
+padding: 5px;
+padding-left: 10px;
+padding-right: 10px;
+background-color: #B0C92B;
+border-radius: 10px;
+cursor: pointer;
+width: 50px;
+height: 30px;
+float: right;
+font-style: center
+} 
 
 #textP{
-  margin-left: 25px;
+margin-left: 25px;
 }
 
 #textHP1{
-  margin-left: 250px;
+margin-left: 250px;
 }
 
 #textHP2{
@@ -217,9 +215,14 @@ padding: 10px 10px 10px 10px;
 
 #searchHeader{
   font-family: Georgia;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: normal;
+  padding-bottom:0px;
+  border-bottom: 1px solid #CCCCCC;
+  width:600px;
 }
+
+
 
 #textInput2{
   width: 240px;
@@ -237,13 +240,9 @@ padding: 10px 10px 10px 10px;
 
 #myDiv {
 background: #FFFFFF;
-border-top-style: solid;
-border.border-top-width: 2px;
-border-color:#CCCCCC;
-height: 100%;
-width: 80%;
-padding: 10px 10px 10px 10px;
-margin-bottom: 300px
+height: auto;
+width: 90%;
+margin-bottom: 500px
 }
 
 /* Kursinfo */
