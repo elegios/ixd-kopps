@@ -404,19 +404,19 @@ border: 0px;
   transition: background-color 1s;
 }
 .moment > .kind-icon.lecture {
-  background-color: #96c3eb;
+  background-color: #24A0D8;
 }
 .moment > .kind-icon.seminar {
-  background-color: #d3e184;
+  background-color: #B0C92B;
 }
 .moment > .kind-icon.exercise {
-  background-color: #e69dc8;
+  background-color: #D85497;
 }
 .moment > .kind-icon.lab {
-  background-color: #f08e80;
+  background-color: #BDBCBC;
 }
 .moment > .kind-icon.exam {
-  background-color: #fad77b;
+  background-color: #FAB919;
 }
 .weeks .kind {
   width: 78px;
@@ -474,7 +474,7 @@ border: 0px;
 
 .week-header {
   display: flex;
-  background-color: #8DC4ED;
+  background-color: #D3DCF1;
   font-size: 12pt;
   font-family: georgia;
   padding: 5px;
