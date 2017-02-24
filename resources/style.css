@@ -207,6 +207,14 @@ padding: 10px 10px 10px 10px;
   margin-left: 107px;
 }
 
+#textAreaSchedule{
+  width: 80%;
+  border: 1px solid #CCCCCC;
+  border-top: none;
+  border-radius: 0px 0px 10px 10px;
+  margin-left: 70px;
+}
+
 #searchHeader{
   font-family: Georgia;
   font-size: 18px;
@@ -500,4 +508,14 @@ option.default {
   background-color: #B0C92B;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.beskrivningSch{
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 0px;
+  font-family: Arial;
+  font-size: 12px;
+  background: #eec0dc;
+  margin-left: 70px;
 }
