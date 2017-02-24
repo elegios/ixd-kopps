@@ -15,12 +15,15 @@
     [:option.default {:value -1} ""]
     [:option {:value :lecture} "Lecture"]
     [:option {:value :seminar} "Seminar"]
-    [:option {:value :exercise} "Exercise"]]))
+    [:option {:value :exercise} "Exercise"]
+    [:option {:value :lab} "Lab"]
+    [:option {:value :exam} "Exam"]]))
 
 (defn week-moment
   [week-num num]
   (let [{:keys [kind duration groups simultaneous comment own-room teachers]} (query :week-moment week-num num)]
     [:div.moment
+     [:div.kind-icon {:class kind}]
      [:div.kind (moment-kind-select week-num num kind)]
      [:div.duration [:input {:type :number :value duration
                              :on-change #(dispatch [:update-duration week-num num (-> % .-target .-value)])}]]
@@ -51,6 +54,7 @@
 (defn new-week-moment
   [week-num]
   [:div.moment.new
+   [:div.kind-icon.unknown]
    [:div.kind (moment-kind-select week-num)]
    [:div.duration [:input {:disabled true :type :number :value 0}]]
    [:div.groups [:input {:disabled true :type :number :value 0}]]
@@ -93,6 +97,7 @@
               :title "Ta bort vecka"}]]]
      [:div.week-content
       [:div.header
+       [:div.kind-icon]
        [:div.kind "Moment"]
        [:div.duration "Timmar"]
        [:div.groups "Grupper"]

@@ -29,12 +29,32 @@
    :comment ""
    :own-room false})
 
+(def lab
+  {:kind :lab
+   :duration 4
+   :groups 2
+   :simultaneous true
+   :teachers ""
+   :comment ""
+   :own-room false})
+
+(def exam
+  {:kind :exam
+   :duration 5
+   :groups 1
+   :simultaneous true
+   :teachers ""
+   :comment ""
+   :own-room false})
+
 (defn default-moment
   [kind]
   (case kind
     :lecture lecture
     :seminar seminar
-    :exercise exercise))
+    :exercise exercise
+    :lab lab
+    :exam exam))
 
 (def schedule
   (transform [ALL]

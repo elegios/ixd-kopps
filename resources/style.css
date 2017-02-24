@@ -370,6 +370,7 @@ border: 0px;
 }
 .week > .week-content > .moment {
   display: flex;
+  align-items: center;
 }
 .weeks input[type=number] {
   width: 100%;
@@ -386,6 +387,29 @@ border: 0px;
   border-style: solid;
   border-color: gray;
   border-width: 1px;
+}
+.weeks .kind-icon {
+  width: 10px;
+  height: 10px;
+}
+.moment > .kind-icon {
+  border-radius: 20px;
+  transition: background-color 1s;
+}
+.moment > .kind-icon.lecture {
+  background-color: green;
+}
+.moment > .kind-icon.seminar {
+  background-color: blue;
+}
+.moment > .kind-icon.exercise {
+  background-color: purple;
+}
+.moment > .kind-icon.lab {
+  background-color: pink;
+}
+.moment > .kind-icon.exam {
+  background-color: black;
 }
 .weeks .kind {
   width: 78px;
