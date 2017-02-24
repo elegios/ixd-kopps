@@ -273,6 +273,22 @@ border-top: none;
 border-radius: 0px 0px 10px 10px;
 }
 
+.ruta p{
+font: 12px Arial;
+padding-top:5px;
+padding-bottom: 5px;
+}
+
+.ruta input{
+border-radius: 3px;
+border-style: solid;
+border-color: #CCCCCC;
+border-width: 1px;
+padding: 3px;
+margin-top:2px;
+margin-bottom:5px;
+}
+
 textarea {
 width: 340px;
 height: 140px;
