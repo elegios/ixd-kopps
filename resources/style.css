@@ -173,7 +173,43 @@ padding: 10px 10px 10px 10px;
 }
 
 #textPeriod{
-  
+  margin-left: 20px;
+}
+
+#selectPeriod{
+  margin-right: 20px;
+}
+#searchButton{
+  border-radius: 3px;
+}
+
+#searchNewCourse {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #B0C92B;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 40px;
+  height: 30px;
+} 
+
+#textP{
+  margin-left: 25px;
+}
+
+#textHP1{
+  margin-left: 250px;
+}
+
+#textHP2{
+  margin-left: 107px;
+}
+
+#searchHeader{
+  font-family: Georgia;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 #textInput2{
@@ -183,6 +219,11 @@ padding: 10px 10px 10px 10px;
   border-style: solid;
   border-color: gray;
   border-width: 1px;
+  margin-left: 20px;
+}
+
+#textcolorIndex{
+  color: black;
 }
 
 #myDiv {
@@ -193,6 +234,7 @@ border-color:#CCCCCC;
 height: 100%;
 width: 80%;
 padding: 10px 10px 10px 10px;
+margin-bottom: 300px
 }
 
 /* Kursinfo */
