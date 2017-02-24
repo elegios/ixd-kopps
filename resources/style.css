@@ -404,19 +404,19 @@ border: 0px;
   transition: background-color 1s;
 }
 .moment > .kind-icon.lecture {
-  background-color: green;
+  background-color: #96c3eb;
 }
 .moment > .kind-icon.seminar {
-  background-color: blue;
+  background-color: #d3e184;
 }
 .moment > .kind-icon.exercise {
-  background-color: purple;
+  background-color: #e69dc8;
 }
 .moment > .kind-icon.lab {
-  background-color: pink;
+  background-color: #f08e80;
 }
 .moment > .kind-icon.exam {
-  background-color: black;
+  background-color: #fad77b;
 }
 .weeks .kind {
   width: 78px;
