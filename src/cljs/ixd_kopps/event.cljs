@@ -1,6 +1,6 @@
 (ns ixd-kopps.event
   (:require [re-frame.core :refer [reg-event-db]]
-            [com.rpl.specter :refer [srange must collect-one] :refer-macros [setval transform]]))
+            [com.rpl.specter :refer [ALL srange must collect-one] :refer-macros [setval transform]]))
 
 (def lecture
   {:kind :lecture
@@ -37,25 +37,29 @@
     :exercise exercise))
 
 (def schedule
-  [[lecture lecture]
-   [lecture]
-   [lecture lecture seminar]
-   [lecture lecture exercise]
-   [lecture lecture seminar]
-   [lecture exercise]
-   []
-   [lecture lecture exercise]
-   [lecture seminar]
-   [lecture lecture exercise]
-   [lecture seminar]
-   [lecture lecture exercise]])
+  (transform [ALL]
+             #(vary-meta % assoc :id (rand-int 100000000))
+             [[lecture lecture]
+              [lecture]
+              [lecture lecture seminar]
+              [lecture lecture exercise]
+              [lecture lecture seminar]
+              [lecture exercise]
+              []
+              [lecture lecture exercise]
+              [lecture seminar]
+              [lecture lecture exercise]
+              [lecture seminar]
+              [lecture lecture exercise]]))
 
 (def course-instance
   {:start {:week-num 3 :year 2017 :term "VT17"}
    :ladok-num 1
    :duration 12
    :schedule schedule
-   :number-of-students 0})
+   :number-of-students 0
+   :to-be-removed #{}
+   :to-be-added #{}})
 
 (def course
   {:instances [course-instance]})
@@ -146,20 +150,40 @@
 (reg-event-db :new-week-at
   (fn [db [_ week-num]]
     (let [{:keys [selected-course selected-instance]} db]
-      (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (srange week-num week-num)]
-              [[]]
-              db))))
+      (->> db
+           (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (srange week-num week-num)]
+                   [(vary-meta [] assoc :id (rand-int 100000000))])
+           (transform [:courses (must selected-course) :instances (must selected-instance) :to-be-added]
+                      #(conj % week-num))))))
 
 (reg-event-db :duplicate-week
-  (fn [db [_ week-num num]]
+  (fn [db [_ week-num]]
     (let [{:keys [selected-course selected-instance]} db]
-      (transform [:courses (must selected-course) :instances (must selected-instance) :schedule (collect-one (must week-num)) (srange (inc week-num) (inc week-num))]
-                 (fn [prev _] [prev])
+      (->> db
+           (transform [:courses (must selected-course) :instances (must selected-instance) :schedule (collect-one (must week-num)) (srange (inc week-num) (inc week-num))]
+                      (fn [prev _] [(vary-meta prev assoc :id (rand-int 100000000))]))
+           (transform [:courses (must selected-course) :instances (must selected-instance) :to-be-added]
+                      #(conj % (inc week-num)))))))
+
+(reg-event-db :mark-added-week-at
+  (fn [db [_ week-num]]
+    (let [{:keys [selected-course selected-instance]} db]
+      (transform [:courses (must selected-course) :instances (must selected-instance) :to-be-added]
+                 #(disj % week-num)
                  db))))
 
 (reg-event-db :remove-week-at
-  (fn [db [_ week-num num]]
+  (fn [db [_ week-num]]
     (let [{:keys [selected-course selected-instance]} db]
-      (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (srange week-num (inc week-num))]
-              []
+      (->> db
+           (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (srange week-num (inc week-num))]
+                   [])
+           (transform [:courses (must selected-course) :instances (must selected-instance) :to-be-removed]
+                      #(disj % week-num))))))
+
+(reg-event-db :mark-removed-week-at
+  (fn [db [_ week-num]]
+    (let [{:keys [selected-course selected-instance]} db]
+      (transform [:courses (must selected-course) :instances (must selected-instance) :to-be-removed]
+              #(conj % week-num)
               db))))

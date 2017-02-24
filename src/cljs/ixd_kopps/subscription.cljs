@@ -11,6 +11,12 @@
   (fn [{:keys [schedule]} _]
     (count schedule)))
 
+(reg-sub :week-ids
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
+  (fn [{:keys [schedule]} _]
+    (map #(-> % meta :id) schedule)))
+
 (reg-sub :max-weeks
   (fn [_ _]
     (subscribe [:selected-course-instance]))
@@ -38,6 +44,18 @@
           num-moments (count (schedule num))]
       {:number week-num
        :num-moments num-moments})))
+
+(reg-sub :is-removed
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
+  (fn [{:keys [to-be-removed]} [_ num]]
+    (contains? to-be-removed num)))
+
+(reg-sub :is-added
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
+  (fn [{:keys [to-be-added]} [_ num]]
+    (contains? to-be-added num)))
 
 (reg-sub :week-moment
   (fn [_ _]

@@ -193,7 +193,7 @@ padding: 10px 10px 10px 10px;
   width: 40px;
   height: 30px;
   float: right;
-} 
+}
 
 #textP{
   margin-left: 25px;
@@ -304,7 +304,7 @@ border: 0px;
 
 }
 
-/* Schemaplanering */ 
+/* Schemaplanering */
 
 #container {
   font: arial;
@@ -337,6 +337,15 @@ border: 0px;
   border-color: #D9D9D9;
   border-width: 1px;
   margin-bottom: 15px;
+  transition-property: max-height, margin-bottom, border-width;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  max-height: 200px;
+}
+.week.minimized {
+  max-height: 0px;
+  margin-bottom: 0px;
+  border-width: 0px;
 }
 .weeks .number {
   width: 70px;

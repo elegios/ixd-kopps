@@ -69,8 +69,12 @@
 (defn week
   [week-num]
   (let [can-add-weeks (query :can-add-weeks)
-        {:keys [number num-moments]} (query :week week-num)]
-    [:div.week
+        {:keys [number num-moments]} (query :week week-num)
+        is-removed (query :is-removed week-num)
+        is-added (query :is-added week-num)]
+    (when is-added
+      (dispatch [:mark-added-week-at week-num]))
+    [:div.week (when (or is-removed is-added) {:class :minimized})
      [:div.week-header
       [:div.number (str "Vecka " number)]
       [:div.actions
@@ -83,7 +87,9 @@
               :class (when-not can-add-weeks "disabled")
               :on-click (when can-add-weeks #(dispatch [:duplicate-week week-num]))}]
        [:img {:src "img/trash.svg"
-              :on-click #(dispatch [:remove-week-at week-num])
+              :on-click (fn []
+                           (dispatch [:mark-removed-week-at week-num])
+                           (js/setTimeout #(dispatch [:remove-week-at week-num]) 500))
               :title "Ta bort vecka"}]]]
      [:div.week-content
       [:div.header
@@ -102,11 +108,12 @@
 
 (defn main []
   (let [num-weeks (query :num-weeks)
-        can-add-weeks (query :can-add-weeks)]
+        can-add-weeks (query :can-add-weeks)
+        ids (query :week-ids)]
     [:div.main
      [:div.weeks
-       (for [num (range num-weeks)]
-         ^{:key num} [week num])
+       (for [[num id] (map vector (range num-weeks) ids)]
+         ^{:key id} [week num])
        [:div.end-of-schedule
          (if can-add-weeks
            [:div.add-new-week {:on-click #(dispatch [:new-week-at num-weeks])}
