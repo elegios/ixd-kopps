@@ -85,7 +85,7 @@
        [:img {:src "img/trash.svg"
               :on-click #(dispatch [:remove-week-at week-num])
               :title "Ta bort vecka"}]]]
-     [:div.content
+     [:div.week-content
       [:div.header
        [:div.kind "Moment"]
        [:div.duration "Timmar"]
