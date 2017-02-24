@@ -33,12 +33,10 @@ padding-top: 10px;
 #side {
 float: left;
 width: 220px;
-height: 1900px;
 margin: 0px 0px 0px 0px;
 padding: 5px;
 background: #FFFFFF;
 border-top-width: 0px;
-border-right: 1px #CCCCCC solid;
 }
 
 .kursinfo kurskod {
@@ -98,6 +96,7 @@ float: right;
 padding: 0px;
 margin-right: 20px;
 padding-left: 20px;
+border-left: 1px #CCCCCC solid;
 }
 
 
