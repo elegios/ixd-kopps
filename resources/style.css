@@ -325,12 +325,12 @@ border: 0px;
   align-items: stretch;
   font-size: 10pt;
 }
-.weeks .header {
+.week .header {
   display: flex;
   font-size: 9pt;
   margin-bottom: 2px;
 }
-.weeks .header > * {
+.week .header > * {
   border-radius: 2px;
   box-sizing: border-box;
   padding-left: 2px;
@@ -354,7 +354,7 @@ border: 0px;
   margin-bottom: 0px;
   border-width: 0px;
 }
-.weeks .number {
+.week .number {
   width: 70px;
 }
 .week > .number {
@@ -372,7 +372,7 @@ border: 0px;
   margin-right: 10px;
   margin-top: 1px;
 }
-.weeks .header > :not(.actions) {
+.week .header > :not(.actions) {
   margin-right: 10px;
 }
 .week > .week-content > .moment {
@@ -395,7 +395,7 @@ border: 0px;
   border-color: gray;
   border-width: 1px;
 }
-.weeks .kind-icon {
+.week .kind-icon {
   width: 10px;
   height: 10px;
 }
@@ -418,30 +418,30 @@ border: 0px;
 .moment > .kind-icon.exam {
   background-color: #FAB919;
 }
-.weeks .kind {
+.week .kind {
   width: 78px;
 }
-.weeks .duration {
+.week .duration {
   width: 50px;
   text-align: center;
 }
-.weeks .groups {
+.week .groups {
   width: 50px;
   text-align: center;
 }
-.weeks .simultaneous {
+.week .simultaneous {
   width: 60px;
   text-align: center;
 }
-.weeks .teachers {
+.week .teachers {
   flex-grow: 1;
   flex-basis: 0px;
 }
-.weeks .comment {
+.week .comment {
   flex-grow: 1;
   flex-basis: 0px;
 }
-.weeks .own-room {
+.week .own-room {
   width: 50px;
   text-align: center;
 }
@@ -496,6 +496,26 @@ option.default {
   display: none;
 }
 
+.summary {
+  border-style: solid;
+  border-color: #D9D9D9;
+  border-width: 1px;
+}
+.summary > .header {
+  margin-right: 0px;
+  display: flex;
+  background-color: #D3DCF1;
+  font-size: 12pt;
+  font-family: georgia;
+}
+.summary > .summary-row {
+  display: flex;
+}
+.summary > * > * {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 5px;
+}
 .end-of-schedule {
   display: flex;
   justify-content: center;

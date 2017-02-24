@@ -1,5 +1,6 @@
 (ns ixd-kopps.subscription
-  (:require [re-frame.core :refer [reg-sub subscribe]]))
+  (:require [re-frame.core :refer [reg-sub subscribe]]
+            [com.rpl.specter :refer [ALL MAP-VALS] :refer-macros [select transform traverse]]))
 
 (reg-sub :selected-course-instance
   (fn [{:keys [selected-course selected-instance courses]} _]
@@ -74,3 +75,18 @@
              {:week-num (+ start-week-num idx)
               :num idx}))
         schedule))))
+
+(reg-sub :summary
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
+  (fn [{:keys [schedule]} _]
+    (let [moments (select [ALL ALL] schedule)
+          grouped (group-by :kind moments)
+          basic
+          (transform [MAP-VALS]
+                     (fn [moments] {:count (count moments)
+                                    :total-duration (reduce + (traverse [ALL :duration] moments))})
+                     grouped)]
+      (assoc basic :total
+        {:count (reduce + (traverse [MAP-VALS :count] basic))
+         :total-duration (reduce + (traverse [MAP-VALS :total-duration] basic))}))))

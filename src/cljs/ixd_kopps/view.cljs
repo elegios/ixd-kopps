@@ -111,6 +111,26 @@
           ^{:key num} [week-moment week-num num])
         [new-week-moment week-num])]]))
 
+(defn summary []
+  (let [summary (query :summary)]
+    [:div.summary
+     [:div.header
+      [:div.kind "Moment"]
+      [:div.count "Antal moment"]
+      [:div.duration "Antal timmar"]]
+     (for [[kind {:keys [count total-duration]}] summary]
+       ^{:key kind} [:div.summary-row
+                     [:div.kind (case kind
+                                  :lecture "Lecture"
+                                  :seminar "Seminar"
+                                  :exercise "Exercise"
+                                  :lab "Lab"
+                                  :exam "Exam"
+                                  :total "Total")]
+                     [:div.count count]
+                     [:div.duration total-duration]])]))
+
+
 (defn main []
   (let [num-weeks (query :num-weeks)
         can-add-weeks (query :can-add-weeks)
@@ -123,4 +143,5 @@
          (if can-add-weeks
            [:div.add-new-week {:on-click #(dispatch [:new-week-at num-weeks])}
             "Lägg till ny vecka"]
-           [:div.info-text "Kursen är slut här!"])]]]))
+           [:div.info-text "Kursen är slut här!"])]
+       [summary]]]))
