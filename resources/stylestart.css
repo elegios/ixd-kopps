@@ -97,9 +97,9 @@ float: left; /*Ändra till right om du vill ha flikarna till höger*/
 display: block;
 text-decoration: none;
 margin: 0px 0px 0px 1px;
-padding: 10px 10px; 
+padding: 10px 10px;
 color: white;
-background: #1954a6; 
+background: #1954a6;
 opacity: 0.8;
 border-radius: 20px 20px 0px 0px;
 width: 180px;
@@ -141,12 +141,12 @@ display: block;
 text-decoration: none;
 padding: 10px 10px 10px 0px;
 color: Black;
-background: #FFFFFF; 
+background: #FFFFFF;
 border-radius: 20px 20px 0px 0px;
 width: 200px;
 border-bottom: 1px solid #CCCCCC;
 }
-.menu li a:hover, .tabs li.selected a{
+.menu li a:hover{
 background: #FFFFFF;
 border-bottom: black 1px solid;
 font-weight: normal;
