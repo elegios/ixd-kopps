@@ -6,12 +6,11 @@ background-attachment: fixed;
 }
 
 #wrapper {
-clear: none;
 margin: 20px auto;
 padding: 0px;
 width: 1000px;
 background-color: #FFFFFF;
-height: 650px;
+overflow: hidden;
 }
 
 .container-fluid {
@@ -34,12 +33,12 @@ padding-top: 10px;
 #side {
 float: left;
 width: 220px;
+height: 1900px;
 margin: 0px 0px 0px 0px;
 padding: 5px;
-border-right: 1px #CCCCCC solid;
 background: #FFFFFF;
 border-top-width: 0px;
-height: 460px;
+border-right: 1px #CCCCCC solid;
 }
 
 .kursinfo kurskod {
@@ -80,7 +79,7 @@ padding: 10px;
 padding-bottom: 5px;
 padding-left: 0px;
 color: Black;
-background: #FFFFFF; 
+background: #FFFFFF;
 border-radius: 20px 20px 0px 0px;
 width: 200px;
 border-bottom: 1px solid #CCCCCC;
@@ -93,14 +92,13 @@ opacity: 1.0;
 }
 
 #content {
-width: 730px;
+width: 760px;
 background: #none;
 float: right;
 padding: 0px;
 margin-right: 20px;
-height: 460px;
-overflow: scroll;
-}html>body #content { width: 730px }
+padding-left: 20px;
+}
 
 
 /* Flikar */
@@ -126,9 +124,9 @@ float: left; /*Ändra till right om du vill ha flikarna till höger*/
 display: block;
 text-decoration: none;
 margin: 0px 0px 0px 1px;
-padding: 10px 10px; 
+padding: 10px 10px;
 color: white;
-background: #1954a6; 
+background: #1954a6;
 opacity: 0.8;
 border-radius: 20px 20px 0px 0px;
 width: 180px;
@@ -164,14 +162,6 @@ background-color: #FFFFFF;
 margin-top: 5px;
 }
 
-.information{
-width: 750px;
-height:300px;
-font-family: Arial;
-font-size: 12px;
-background: #CACACA;
-}
- 
 .beskrivning{
 width: 340px;
 padding: 5px;
@@ -183,7 +173,6 @@ background: #eec0dc;
 
 .ruta{
 width: 340px;
-height: auto;
 padding: 5px;
 margin-top: 0px;
 border: 1px solid #CCCCCC;
