@@ -191,6 +191,7 @@ width: 50px;
 height: 30px;
 float: right;
 font-style: center
+margin-top:10px;
 } 
 
 #textP{
@@ -220,6 +221,7 @@ margin-left: 250px;
   padding-bottom:0px;
   border-bottom: 1px solid #CCCCCC;
   width:600px;
+  margin-top:5px;
 }
 
 
@@ -530,11 +532,170 @@ option.default {
 }
 
 .beskrivningSch{
-  width: 80%;
-  padding: 5px;
-  margin-bottom: 0px;
-  font-family: Arial;
-  font-size: 12px;
-  background: #eec0dc;
-  margin-left: 70px;
+width: 80%;
+padding: 5px;
+margin-bottom: 0px;
+font-family: Arial;
+font-size: 12px;
+background: #eec0dc;
+margin-left: 70px;
 }
+
+/* Searchbox */
+
+#myInput {
+height: 26px;
+width: 500px;
+padding: 0 12px 0 25px;
+background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
+border: 1px solid #CCCCCC;
+border-radius: 13px;
+margin-bottom: 10px;
+}
+
+#myUL {
+/* Remove default list styling */
+list-style-type: none;
+padding: 0;
+margin: 0;
+display: block;
+border: 1px solid #CCCCCC;
+}
+/*
+#myInput:focus + #myUL{
+display: block;
+} */
+
+#myUL li a {
+border-bottom: 1px solid #ddd; /* Add a border to all links */
+background-color: #ffffff; /* Grey background color */
+padding: 10px 10px 10px 10px; /* Add some padding */
+text-decoration: none; /* Remove default text underline */
+font: 14px Arial; /* Increase the font-size */
+color: black; /* Add a black text color */
+display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover {
+border-bottom-color: #000000;
+}
+
+/*.search input {
+height: 26px;
+width: 500px;
+padding: 0 12px 0 25px;
+background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
+border: 1px solid #CCCCCC;
+border-radius: 13px;
+}
+
+.search input:focus {
+outline: none;
+border-color: #CCC;
+}
+
+.search input:focus + .results { 
+display: block 
+}
+
+.search .results {
+display: none;
+position: center;
+top: 35px;
+left: 0;
+right: 0;
+z-index: 10;
+padding: 0;
+margin: 0;
+border-width: 1px;
+border-style: solid;
+border-color: #cccccc;
+border-radius: 3px;
+background-color: #ffffff;
+width:300px;
+margin-top: 10px;
+}
+
+.search .results li { 
+display: block 
+}
+
+.search .results li:first-child { 
+margin-top: -1px 
+}
+
+.search .results li:first-child:before, .search .results li:first-child:after {
+display: block;
+content: '';
+width: 0;
+background-color: #F0c900;
+height: 0;
+position: absolute;
+left: 50%;
+margin-left: -5px;
+border: 5px outset transparent;
+}
+
+.search .results li:first-child:before {
+border-bottom: 5px solid #c4c7d7;
+top: -11px;
+}
+
+.search .results li:first-child:after {
+border-bottom: 5px solid #fdfdfd;
+top: -10px;
+}
+
+.search .results li:first-child:hover:before, .search .results li:first-child:hover:after { 
+display: none 
+}
+
+.search .results li:last-child { 
+margin-bottom: -1px 
+}
+
+.search .results a {
+display: block;
+position: relative;
+margin: 0 -1px;
+padding: 6px 40px 6px 10px;
+color: #CCCCCC;
+font-weight: 500;
+border: 1px solid transparent;
+border-radius: 3px;
+overflow: hidden;
+}
+
+.search .results a span { 
+font-weight: 200 
+}
+
+.search .results a:before {
+content: '';
+width: 18px;
+height: 18px;
+position: absolute;
+top: 50%;
+right: 10px;
+margin-top: -9px;
+background: url("http://cssdeck.com/uploads/media/items/7/7BNkBjd.png") 0 0 no-repeat;
+}
+
+.search .results a:hover {
+text-decoration: none;
+color: #000000;
+
+}
+
+:-moz-placeholder {
+color: #a7aabc;
+font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+color:  none;
+font-weight: 200;
+}
+
+.lt-ie9 .search input { 
+line-height: 26px } 
