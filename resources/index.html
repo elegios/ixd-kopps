@@ -6,8 +6,25 @@
 	 <meta name="generator" content="{{ app_url }}" />
 	 <link rel="stylesheet" href="style.css" type="text/css" />
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	 <script>
+		function myFunction() {
+    		var input, filter, ul, li, a, i;
+		    input = document.getElementById('myInput');
+		    filter = input.value.toUpperCase();
+		    ul = document.getElementById("myUL");
+		    li = ul.getElementsByTagName('li');
 
-	 <script type="text/javascript" src="http://static.blogg.se/shared/js/script.js"></script>
+		    for (i = 0; i < li.length; i++) {
+		        a = li[i].getElementsByTagName("a")[0];
+		        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		            li[i].style.display = "";
+		        } else {
+		            li[i].style.display = "none";
+		        }
+		    }
+		}
+	</script>
+
  </head>
 
 <body>
@@ -40,20 +57,33 @@
 		 	<p id="searchHeader">Sök</p>
 
 			 <div id="searchDiv">
-			 	<input id= "textInput1" type="text" name="search" placeholder="Kurskod">
-			 	<input id= "textInput2" type="text" name="search" placeholder="Kursnamn">
-			 	<label id="textPeriod">Period:</label>
-			 	<select id="selectPeriod">
-				  <option value="volvo">P1</option>
-				  <option value="saab">P2</option>
-				  <option value="mercedes">P3</option>
-				  <option value="audi">P4</option>
-				  <option value="audi">Fler perioder</option>
-				</select>
-				<div id="searchNewCourse">
-				  <p>Sök</p>
-				</div>	
-				
+			 	<section class="main">
+	 				<form class="search" method="post" action="index.html" >
+						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+						<ul id="myUL">
+							<li><a href="#"><b>DD1320</b> Tillämpad datalogi</a></li>
+							<li><a href="#"><b>AK2203</b> Media mellan teknik och kultur</a></li>
+							<li><a href="#"><b>MF1035</b> Elektroteknik, media</a></li>
+							<li><a href="#"><b>DH1609</b> Kommunikation och information</a></li>
+							<li><a href="#"><b>DM2531</b> Grafisk produktion</a></li>
+							<li><a href="#"><b>DM2711</b> Forskningsmetodik för interaktiv medieteknik </a></li>
+							<li><a href="scheduling.html"><b>DH2628</b> Metoder för interaktionsdesign<</a></li>
+							<li><a href="#"><b>DM1578</b> Programintegrerande kurs i medieteknik</a></li>
+							<li><a href="#"><b>DH2408</b> Utvärderingsmetoder inom människa-datorinteraktion </a></li>
+							<li><a href="#"><b>DM2573</b> Hållbarhet och medieteknik </a></li>
+							<li><a href="#"><b>DM2700</b> Introduktion till interaktiv medieteknik</a></li>
+							<li><a href="#"><b>DD1334</b> Databasteknik </a></li>
+							<li><a href="#"><b>DT1175</b> Ljud </a></li>
+							<li><a href="#"><b>DT1130</b> Spektrala transformer </a></li>
+							<li><a href="#"><b>SF1901</b> Sannolikhetsteori och statistik I </a></li>
+							<li><a href="#"><b>DM2529</b> Digital bild för publicering </a></li>
+							<li><a href="#"><b>ME1003</b> Industriell ekonomi, grundkurs</a></li>
+							<li><a href="#"><b>DM2517</b> XML för publicering </a></li>
+
+						</ul>
+					</form>
+				</section>		
 			 </div>
 			 <br>
 			 <p id="searchHeader">Mina kurser</p>
@@ -65,7 +95,6 @@
 			 	<label id="textKod">DH2408</label>
 			 	<label id="textP">Utvärderingsmetoder inom Människa-datorinteraktion</label>
 			 	<label id="textHP2">7,5hp</label>
-			 	<label id="statusInskickad"><p>7,5hp</p></label>
 		 </div>
 
 		</div>
