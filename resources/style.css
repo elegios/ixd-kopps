@@ -270,7 +270,7 @@ padding: 5px;
 margin-bottom: 0px;
 font-family: Arial;
 font-size: 12px;
-background: #eec0dc;
+background: #d2dbf2;
 }
 
 .ruta{
@@ -532,13 +532,21 @@ option.default {
 }
 
 .beskrivningSch{
-width: 80%;
+width: 100%;
 padding: 5px;
 margin-bottom: 0px;
 font-family: Arial;
 font-size: 12px;
-background: #eec0dc;
-margin-left: 70px;
+background: #d2dbf2;
+}
+
+.rutaSch{
+width: 100%px;
+padding: 5px;
+margin-top: 0px;
+border: 1px solid #CCCCCC;
+border-top: none;
+border-radius: 0px 0px 10px 10px;
 }
 
 /* Searchbox */
@@ -554,17 +562,16 @@ margin-bottom: 10px;
 }
 
 #myUL {
-/* Remove default list styling */
 list-style-type: none;
 padding: 0;
 margin: 0;
-display: block;
+display: none;
 border: 1px solid #CCCCCC;
 }
-/*
+
 #myInput:focus + #myUL{
 display: block;
-} */
+} 
 
 #myUL li a {
 border-bottom: 1px solid #ddd; /* Add a border to all links */
