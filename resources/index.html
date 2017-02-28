@@ -16,7 +16,7 @@
 
 		    for (i = 0; i < li.length; i++) {
 		        a = li[i].getElementsByTagName("a")[0];
-		        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		        if (filter && a.innerHTML.toUpperCase().indexOf(filter) > -1) {
 		            li[i].style.display = "";
 		        } else {
 		            li[i].style.display = "none";
@@ -59,31 +59,31 @@
 			 <div id="searchDiv">
 			 	<section class="main">
 	 				<form class="search" method="post" action="index.html" >
-						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Sök efter kurskod eller namn...">
 
 						<ul id="myUL">
-							<li><a href="#"><b>DD1320</b> Tillämpad datalogi</a></li>
-							<li><a href="#"><b>AK2203</b> Media mellan teknik och kultur</a></a></li>
-							<li><a href="#"><b>MF1035</b> Elektroteknik, media </a></a></li>
-							<li><a href="#"><b>DH1609</b> Kommunikation och information </a></a></li>
-							<li><a href="#"><b>DM2531</b> Grafisk produktion</a></a></li>
-							<li><a href="#"><b>DM2711</b> Forskningsmetodik för interaktiv medieteknik </a></a></li>
-							<li><a href="scheduling.html">DM2628 Metoder för interaktionsdesign</a></a></li>
-							<li><a href="#"><b>DM1578</b> Programintegrerande kurs i medieteknik</a></li>
-							<li><a href="#"><b>DH2408</b> Utvärderingsmetoder inom människa-datorinteraktion </a></li>
-							<li><a href="#"><b>DM2573</b> Hållbarhet och medieteknik </a></li>
-							<li><a href="#"><b>DM2700</b> Introduktion till interaktiv medieteknik</a></li>
-							<li><a href="#"><b>DD1334</b> Databasteknik </a></li>
-							<li><a href="#"><b>DT1175</b> Ljud </a></li>
-							<li><a href="#"><b>DT1130</b> Spektrala transformer </a></li>
-							<li><a href="#"><b>SF1901</b> Sannolikhetsteori och statistik I </a></li>
-							<li><a href="#"><b>DM2529</b> Digital bild för publicering </a></li>
-							<li><a href="#"><b>ME1003</b> Industriell ekonomi, grundkurs</a></li>
-							<li><a href="#"><b>DM2517</b> XML för publicering </a></li>
+							<li style="display:none;"><a href="#"><b>DD1320</b> Tillämpad datalogi</a></li>
+							<li style="display:none;"><a href="#"><b>AK2203</b> Media mellan teknik och kultur</a></a></li>
+							<li style="display:none;"><a href="#"><b>MF1035</b> Elektroteknik, media </a></a></li>
+							<li style="display:none;"><a href="#"><b>DH1609</b> Kommunikation och information </a></a></li>
+							<li style="display:none;"><a href="#"><b>DM2531</b> Grafisk produktion</a></a></li>
+							<li style="display:none;"><a href="#"><b>DM2711</b> Forskningsmetodik för interaktiv medieteknik </a></a></li>
+							<li style="display:none;"><a href="kursinfosida.html"><b>DM2628</b> Metoder för interaktionsdesign</a></a></li>
+							<li style="display:none;"><a href="#"><b>DM1578</b> Programintegrerande kurs i medieteknik</a></li>
+							<li style="display:none;"><a href="#"><b>DH2408</b> Utvärderingsmetoder inom människa-datorinteraktion </a></li>
+							<li style="display:none;"><a href="#"><b>DM2573</b> Hållbarhet och medieteknik </a></li>
+							<li style="display:none;"><a href="#"><b>DM2700</b> Introduktion till interaktiv medieteknik</a></li>
+							<li style="display:none;"><a href="#"><b>DD1334</b> Databasteknik </a></li>
+							<li style="display:none;"><a href="#"><b>DT1175</b> Ljud </a></li>
+							<li style="display:none;"><a href="#"><b>DT1130</b> Spektrala transformer </a></li>
+							<li style="display:none;"><a href="#"><b>SF1901</b> Sannolikhetsteori och statistik I </a></li>
+							<li style="display:none;"><a href="#"><b>DM2529</b> Digital bild för publicering </a></li>
+							<li style="display:none;"><a href="#"><b>ME1003</b> Industriell ekonomi, grundkurs</a></li>
+							<li style="display:none;"><a href="#"><b>DM2517</b> XML för publicering </a></li>
 
 						</ul>
 					</form>
-				</section>		
+				</section>
 			 </div>
 			 <br>
 			 <p id="searchHeader">Mina kurser</p>
