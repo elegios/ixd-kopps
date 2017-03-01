@@ -449,12 +449,17 @@ border: 0px;
   margin-right: 2px;
 }
 .actions > .hovered {
-  visibility: hidden;
+  opacity: 0;
   z-index: 1;
+  transition: opacity 0.1s;
+}
+.moment:hover .actions > .hovered {
+  opacity: 1;
 }
 .actions img {
   height: 17px;
   margin-left: 2px;
+  transition: transform .05s;
 }
 .actions img.disabled {
   cursor: auto;
@@ -463,8 +468,8 @@ border: 0px;
 .actions img:not(.disabled) {
   cursor: pointer;
 }
-.moment:hover .actions > .hovered {
-  visibility: visible;
+.actions img:not(.disabled):hover {
+  transform: scale(1.2, 1.2);
 }
 
 .week-header {
@@ -529,6 +534,10 @@ option.default {
   background-color: #B0C92B;
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.03s;
+}
+.add-new-week:hover {
+  transform: scale(1.1, 1.1);
 }
 
 .beskrivningSch{
