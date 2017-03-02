@@ -194,7 +194,7 @@ height: 30px;
 float: right;
 font-style: center
 margin-top:10px;
-} 
+}
 
 #textP{
 margin-left: 25px;
@@ -358,13 +358,6 @@ border: 0px;
   margin-bottom: 0px;
   border-width: 0px;
 }
-.week .number {
-  width: 70px;
-}
-.week > .number {
-  text-align: center;
-  margin-right: 2px;
-}
 .week > .week-content {
   display: flex;
   flex-direction: column;
@@ -458,12 +451,17 @@ border: 0px;
   margin-right: 2px;
 }
 .actions > .hovered {
-  visibility: hidden;
+  opacity: 0;
   z-index: 1;
+  transition: opacity 0.1s;
+}
+.moment:hover .actions > .hovered {
+  opacity: 1;
 }
 .actions img {
   height: 17px;
   margin-left: 2px;
+  transition: transform .05s;
 }
 .actions img.disabled {
   cursor: auto;
@@ -472,8 +470,8 @@ border: 0px;
 .actions img:not(.disabled) {
   cursor: pointer;
 }
-.moment:hover .actions > .hovered {
-  visibility: visible;
+.actions img:not(.disabled):hover {
+  transform: scale(1.2, 1.2);
 }
 
 .week-header {
@@ -486,6 +484,11 @@ border: 0px;
 }
 .week-header:active {
   cursor: grabbing;
+}
+.week-header .course-number {
+  margin-left: 30px;
+  font-size: 9pt;
+  color: gray;
 }
 .week-header > .actions {
   flex-grow: 1;
@@ -504,6 +507,7 @@ option.default {
   border-style: solid;
   border-color: #D9D9D9;
   border-width: 1px;
+  margin-bottom: 20px;
 }
 .summary > .header {
   margin-right: 0px;
@@ -523,6 +527,7 @@ option.default {
 .end-of-schedule {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .add-new-week {
   padding: 5px;
@@ -531,6 +536,10 @@ option.default {
   background-color: #B0C92B;
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.03s;
+}
+.add-new-week:hover {
+  transform: scale(1.1, 1.1);
 }
 
 .beskrivningSch{
@@ -573,7 +582,7 @@ border: 1px solid #CCCCCC;
 
 #myInput:focus + #myUL{
 display: block;
-} 
+}
 
 #myUL li a {
 border-bottom: 1px solid #ddd; /* Add a border to all links */
@@ -603,8 +612,8 @@ outline: none;
 border-color: #CCC;
 }
 
-.search input:focus + .results { 
-display: block 
+.search input:focus + .results {
+display: block
 }
 
 .search .results {
@@ -625,12 +634,12 @@ width:300px;
 margin-top: 10px;
 }
 
-.search .results li { 
-display: block 
+.search .results li {
+display: block
 }
 
-.search .results li:first-child { 
-margin-top: -1px 
+.search .results li:first-child {
+margin-top: -1px
 }
 
 .search .results li:first-child:before, .search .results li:first-child:after {
@@ -655,12 +664,12 @@ border-bottom: 5px solid #fdfdfd;
 top: -10px;
 }
 
-.search .results li:first-child:hover:before, .search .results li:first-child:hover:after { 
-display: none 
+.search .results li:first-child:hover:before, .search .results li:first-child:hover:after {
+display: none
 }
 
-.search .results li:last-child { 
-margin-bottom: -1px 
+.search .results li:last-child {
+margin-bottom: -1px
 }
 
 .search .results a {
@@ -675,8 +684,8 @@ border-radius: 3px;
 overflow: hidden;
 }
 
-.search .results a span { 
-font-weight: 200 
+.search .results a span {
+font-weight: 200
 }
 
 .search .results a:before {
@@ -706,5 +715,5 @@ color:  none;
 font-weight: 200;
 }
 
-.lt-ie9 .search input { 
-line-height: 26px } 
+.lt-ie9 .search input {
+line-height: 26px }
