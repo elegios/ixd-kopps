@@ -11,7 +11,7 @@ background-attachment: fixed;
 margin: 20px auto;
 padding: 0px;
 width: 1000px;
-background-color: #FFFFFF;
+background-color: #fff;
 overflow: hidden;
 }
 
@@ -41,7 +41,6 @@ width: 220px;
 margin: 0px 0px 0px 0px;
 padding: 5px;
 background: #FFFFFF;
-border-top-width: 0px;
 }
 
 .kursinfo kurskod {
@@ -57,15 +56,17 @@ font-family:  Arial;
 font-size: 14px;
 color: #000000;
 background-color: #FFFFFF;
+
 }
 
 .menu{
-margin: 20px 0px 0px 0px;
 width: 100%;
 overflow: hidden;
+align-content: center;
 }
 
 .menu ul{
+margin-top: 20px;
 padding-left: 0px; /*offset of tabs relative to browser left edge*/
 font: 14px Arial;
 }
@@ -75,35 +76,36 @@ display: inline;
 
 }
 .menu li a{
-float: left; /*Ändra till right om du vill ha flikarna till höger*/
+float: center; /*Ändra till right om du vill ha flikarna till höger*/
 display: block;
 text-decoration: none;
 padding: 10px;
-padding-bottom: 5px;
-padding-left: 0px;
+padding-top:5px;
 color: Black;
 background: #FFFFFF;
-border-radius: 20px 20px 0px 0px;
 width: 200px;
-border-bottom: 1px solid #CCCCCC;
+margin-bottom:5px;
 }
 .menu li a:hover, .menu li.selected a{
-background: #FFFFFF;
-border-bottom: black 1px solid;
-font-weight: normal;
+background: #f2f2f2;
 opacity: 1.0;
+}
+
+.menu-item-icon-container{
+width: 30px;
+margin: 10px;
 }
 
 /* Content */
 
 #content {
 width: 760px;
-background: #none;
+background: #f2f2f2;
 float: right;
 padding: 0px;
 margin-right: 20px;
 padding-left: 20px;
-border-left: 1px #CCCCCC solid;
+
 }
 
 /* Flikar och blå linje*/
@@ -253,7 +255,6 @@ margin-bottom: 500px
 font-family:  Georgia;
 font-size: 24px;
 color: #000000;
-background-color: #FFFFFF;
 margin-top: 5px;
 }
 .underrubrik p{
@@ -277,9 +278,10 @@ background: #d2dbf2;
 width: 340px;
 padding: 5px;
 margin-top: 0px;
-border: 1px solid #CCCCCC;
+border: 1px solid #ffffff;
 border-top: none;
 border-radius: 0px 0px 10px 10px;
+background: white;
 }
 
 .ruta p{
@@ -303,7 +305,7 @@ width: 340px;
 height: 140px;
 padding: 5px;
 margin-top: 5px;
-border: 1px solid #CCCCCC;
+border: 1px solid #fff;
 border-top: none;
 border-radius: 0px 0px 10px 10px;
 }
