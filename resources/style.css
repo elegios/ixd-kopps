@@ -11,7 +11,7 @@ background-attachment: fixed;
 margin: 20px auto;
 padding: 0px;
 width: 1000px;
-background-color: #fff;
+background-color: #FFFFFF;
 overflow: hidden;
 }
 
@@ -41,6 +41,14 @@ width: 220px;
 margin: 0px 0px 0px 0px;
 padding: 5px;
 background: #FFFFFF;
+border-top-width: 0px;
+}
+
+.kursinfo{
+width:200px;
+padding:5px;
+margin-top:-5px;
+margin-left:5px;
 }
 
 .kursinfo kurskod {
@@ -48,15 +56,12 @@ font-family:  Georgia;
 font-size: 24px;
 text-weight: normal;
 color: #000000;
-background-color: #FFFFFF;
 }
 
 .kursinfo kursnamn {
 font-family:  Arial;
-font-size: 14px;
+font-size: 12px;
 color: #000000;
-background-color: #FFFFFF;
-
 }
 
 .menu{
@@ -66,7 +71,7 @@ align-content: center;
 }
 
 .menu ul{
-margin-top: 20px;
+margin-top: 5px;
 padding-left: 0px; /*offset of tabs relative to browser left edge*/
 font: 14px Arial;
 }
@@ -80,32 +85,39 @@ float: center; /*Ändra till right om du vill ha flikarna till höger*/
 display: block;
 text-decoration: none;
 padding: 10px;
-padding-top:5px;
+padding-bottom: 5px;
 color: Black;
-background: #FFFFFF;
+background: #fdfdfd;
+border-radius: 3px;
 width: 200px;
 margin-bottom:5px;
 }
 .menu li a:hover, .menu li.selected a{
-background: #f2f2f2;
 opacity: 1.0;
+color: #1954a6;
+background: #fff;
+}
+
+.menu li:hover svg path, .menu li.selected svg path{
+fill: #1954a6;
 }
 
 .menu-item-icon-container{
 width: 30px;
-margin: 10px;
+height:30px;
+
 }
 
 /* Content */
 
 #content {
 width: 760px;
-background: #f2f2f2;
+background: #none;
 float: right;
 padding: 0px;
 margin-right: 20px;
 padding-left: 20px;
-
+border-left: 1px #f2f2f2 solid;
 }
 
 /* Flikar och blå linje*/
@@ -194,7 +206,7 @@ height: 30px;
 float: right;
 font-style: center
 margin-top:10px;
-}
+} 
 
 #textP{
 margin-left: 25px;
@@ -255,6 +267,7 @@ margin-bottom: 500px
 font-family:  Georgia;
 font-size: 24px;
 color: #000000;
+background-color: #FFFFFF;
 margin-top: 5px;
 }
 .underrubrik p{
@@ -278,10 +291,9 @@ background: #d2dbf2;
 width: 340px;
 padding: 5px;
 margin-top: 0px;
-border: 1px solid #ffffff;
+border: 1px solid #CCCCCC;
 border-top: none;
 border-radius: 0px 0px 10px 10px;
-background: white;
 }
 
 .ruta p{
@@ -305,7 +317,7 @@ width: 340px;
 height: 140px;
 padding: 5px;
 margin-top: 5px;
-border: 1px solid #fff;
+border: 1px solid #CCCCCC;
 border-top: none;
 border-radius: 0px 0px 10px 10px;
 }
@@ -357,6 +369,13 @@ border: 0px;
   max-height: 0px;
   margin-bottom: 0px;
   border-width: 0px;
+}
+.week .number {
+  width: 70px;
+}
+.week > .number {
+  text-align: center;
+  margin-right: 2px;
 }
 .week > .week-content {
   display: flex;
@@ -451,17 +470,12 @@ border: 0px;
   margin-right: 2px;
 }
 .actions > .hovered {
-  opacity: 0;
+  visibility: hidden;
   z-index: 1;
-  transition: opacity 0.1s;
-}
-.moment:hover .actions > .hovered {
-  opacity: 1;
 }
 .actions img {
   height: 17px;
   margin-left: 2px;
-  transition: transform .05s;
 }
 .actions img.disabled {
   cursor: auto;
@@ -470,8 +484,8 @@ border: 0px;
 .actions img:not(.disabled) {
   cursor: pointer;
 }
-.actions img:not(.disabled):hover {
-  transform: scale(1.2, 1.2);
+.moment:hover .actions > .hovered {
+  visibility: visible;
 }
 
 .week-header {
@@ -484,11 +498,6 @@ border: 0px;
 }
 .week-header:active {
   cursor: grabbing;
-}
-.week-header .course-number {
-  margin-left: 30px;
-  font-size: 9pt;
-  color: gray;
 }
 .week-header > .actions {
   flex-grow: 1;
@@ -507,7 +516,6 @@ option.default {
   border-style: solid;
   border-color: #D9D9D9;
   border-width: 1px;
-  margin-bottom: 20px;
 }
 .summary > .header {
   margin-right: 0px;
@@ -527,7 +535,6 @@ option.default {
 .end-of-schedule {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
 .add-new-week {
   padding: 5px;
@@ -536,10 +543,6 @@ option.default {
   background-color: #B0C92B;
   border-radius: 10px;
   cursor: pointer;
-  transition: transform 0.03s;
-}
-.add-new-week:hover {
-  transform: scale(1.1, 1.1);
 }
 
 .beskrivningSch{
@@ -582,7 +585,7 @@ border: 1px solid #CCCCCC;
 
 #myInput:focus + #myUL{
 display: block;
-}
+} 
 
 #myUL li a {
 border-bottom: 1px solid #ddd; /* Add a border to all links */
@@ -612,8 +615,8 @@ outline: none;
 border-color: #CCC;
 }
 
-.search input:focus + .results {
-display: block
+.search input:focus + .results { 
+display: block 
 }
 
 .search .results {
@@ -634,12 +637,12 @@ width:300px;
 margin-top: 10px;
 }
 
-.search .results li {
-display: block
+.search .results li { 
+display: block 
 }
 
-.search .results li:first-child {
-margin-top: -1px
+.search .results li:first-child { 
+margin-top: -1px 
 }
 
 .search .results li:first-child:before, .search .results li:first-child:after {
@@ -664,12 +667,12 @@ border-bottom: 5px solid #fdfdfd;
 top: -10px;
 }
 
-.search .results li:first-child:hover:before, .search .results li:first-child:hover:after {
-display: none
+.search .results li:first-child:hover:before, .search .results li:first-child:hover:after { 
+display: none 
 }
 
-.search .results li:last-child {
-margin-bottom: -1px
+.search .results li:last-child { 
+margin-bottom: -1px 
 }
 
 .search .results a {
@@ -684,8 +687,8 @@ border-radius: 3px;
 overflow: hidden;
 }
 
-.search .results a span {
-font-weight: 200
+.search .results a span { 
+font-weight: 200 
 }
 
 .search .results a:before {
@@ -715,5 +718,5 @@ color:  none;
 font-weight: 200;
 }
 
-.lt-ie9 .search input {
-line-height: 26px }
+.lt-ie9 .search input { 
+line-height: 26px } 
