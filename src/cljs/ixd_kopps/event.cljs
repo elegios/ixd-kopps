@@ -1,12 +1,11 @@
 (ns ixd-kopps.event
   (:require [re-frame.core :refer [reg-event-db]]
-            [com.rpl.specter :refer [ALL srange must collect-one] :refer-macros [setval transform]]))
+            [com.rpl.specter :refer [ALL LAST END srange must collect-one] :refer-macros [setval transform]]))
 
 (def lecture
   {:kind :lecture
    :duration 2
-   :groups 1
-   :simultaneous true
+   :groups [1]
    :teachers "Ylva Fernaeus"
    :comment ""
    :own-room false})
@@ -14,8 +13,7 @@
 (def seminar
   {:kind :seminar
    :duration 2
-   :groups 2
-   :simultaneous true
+   :groups [2]
    :teachers ""
    :comment ""
    :own-room false})
@@ -23,8 +21,7 @@
 (def exercise
   {:kind :exercise
    :duration 2
-   :groups 2
-   :simultaneous true
+   :groups [1 1]
    :teachers ""
    :comment ""
    :own-room false})
@@ -32,8 +29,7 @@
 (def lab
   {:kind :lab
    :duration 4
-   :groups 2
-   :simultaneous true
+   :groups [2 3]
    :teachers ""
    :comment ""
    :own-room false})
@@ -41,8 +37,7 @@
 (def exam
   {:kind :exam
    :duration 5
-   :groups 1
-   :simultaneous true
+   :groups [1]
    :teachers ""
    :comment ""
    :own-room false})
@@ -60,7 +55,7 @@
   (transform [ALL]
              #(vary-meta % assoc :id (rand-int 100000000))
              [[lecture lecture]
-              [lecture]
+              [lecture lab]
               [lecture lecture seminar]
               [lecture lecture exercise]
               [lecture lecture seminar]
@@ -111,12 +106,29 @@
               duration
               db))))
 
-(reg-event-db :update-groups
-  (fn [db [_ week-num num groups]]
+(reg-event-db :update-group-count
+  (fn [db [_ week-num num group-count]]
     (let [{:keys [selected-course selected-instance]} db]
-      (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :groups]
-              groups
-              db))))
+      (transform [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :groups]
+                 (fn [prev]
+                   (let [prev-group-count (reduce + prev)
+                         num-added (- group-count prev-group-count)]
+                     (cond
+                       (neg? num-added)
+                       (loop [next []
+                              [curr & prev] prev
+                              remaining group-count]
+                         (cond
+                           (or (not curr) (= remaining 0)) next
+                           (<= curr remaining) (recur (conj next curr) prev (- remaining curr))
+                           :default (conj next remaining)))
+
+                       (or (= (count prev) 1)
+                           (not-every? #(= % 1) prev))
+                       (transform [LAST] #(+ num-added %) prev)
+
+                       :default (setval [END] (repeat num-added 1) prev))))
+                 db))))
 
 (reg-event-db :update-comment
   (fn [db [_ week-num num comment]]
@@ -132,11 +144,14 @@
               teachers
               db))))
 
-(reg-event-db :toggle-simultaneous
-  (fn [db [_ week-num num]]
+(reg-event-db :make-simultaneous
+  (fn [db [_ week-num num simultaneous]]
     (let [{:keys [selected-course selected-instance]} db]
-      (transform [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :simultaneous]
-                 not
+      (transform [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :groups]
+                 #(let [groups (reduce + %)]
+                    (if simultaneous
+                      [groups]
+                      (vec (repeat groups 1))))
                  db))))
 
 (reg-event-db :toggle-own-room

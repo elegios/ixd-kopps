@@ -348,13 +348,13 @@ border: 0px;
   margin-bottom: 15px;
   transition-property: max-height, margin-bottom, border-width;
   transition-duration: 0.5s;
-  overflow: hidden;
   max-height: 200px;
 }
 .week.minimized {
   max-height: 0px;
   margin-bottom: 0px;
   border-width: 0px;
+  overflow: hidden;
 }
 .week > .week-content {
   display: flex;
@@ -427,6 +427,108 @@ border: 0px;
 .week .simultaneous {
   width: 60px;
   text-align: center;
+}
+.moment .simultaneous {
+  height: 19px;
+  position: relative;
+  z-index: 1;
+}
+.simul-editor {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  transition-property: height, width, left, top, background-color, border-color;
+  transition-duration: 0.5s;
+}
+.simul-editor:hover {
+  width: 200px;
+  height: 200px;
+  left: -80px;
+  top: -80px;
+  border-color: black;
+}
+.simul-editor > .summary {
+  position: absolute;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.simul-editor > .editor {
+  height: 200px;
+  width: 200px;
+  transform-origin: 0px 0px;
+  transform: scale(0, 0);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  padding-bottom: 8px;
+}
+.simul-editor > .editor > .help-text {
+  font-style: italic;
+  font-size: 9pt;
+  margin-bottom: 5px;
+  color: gray;
+}
+.simul-editor > .editor > .groups-display {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  flex-grow: 1;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+.simul-editor > .editor > .groups-display > .group-display {
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.group-display > img {
+  width: 20px;
+  height: 20px;
+  cursor: grab;
+  transition: transform 0.1s;
+}
+.group-display > img:hover {
+  transform: scale(1.1, 1.1);
+}
+.group-display > img:active {
+  cursor: grabbing;
+}
+.simul-editor > .editor > .group-shortcuts {
+  display: flex;
+  justify-content: space-between;
+}
+.simul-editor > .editor > .group-shortcuts > * {
+  flex-basis: 0;
+  white-space: nowrap;
+  background-color: #B0C92B;
+  border-radius: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.simul-editor > .editor > .group-shortcuts > *:hover {
+  transform: scale(1.05, 1.05);
+}
+.simul-editor:hover .editor {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.simul-editor:hover .summary {
+  opacity: 0;
 }
 .week .teachers {
   flex-grow: 1;
@@ -501,23 +603,23 @@ option.default {
   display: none;
 }
 
-.summary {
+.weeks > .summary {
   border-style: solid;
   border-color: #D9D9D9;
   border-width: 1px;
   margin-bottom: 20px;
 }
-.summary > .header {
+.weeks > .summary > .header {
   margin-right: 0px;
   display: flex;
   background-color: #D3DCF1;
   font-size: 12pt;
   font-family: georgia;
 }
-.summary > .summary-row {
+.weeks > .summary > .summary-row {
   display: flex;
 }
-.summary > * > * {
+.weeks > .summary > * > * {
   flex-grow: 1;
   flex-basis: 0;
   padding: 5px;

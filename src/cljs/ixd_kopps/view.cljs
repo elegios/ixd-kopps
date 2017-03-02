@@ -1,5 +1,6 @@
 (ns ixd-kopps.view
-  (:require [re-frame.core :as rf :refer [dispatch]]))
+  (:require [re-frame.core :as rf :refer [dispatch]]
+            [clojure.string :as str]))
 
 (defn query
   [sub & args]
@@ -21,18 +22,29 @@
 
 (defn week-moment
   [week-num num]
-  (let [{:keys [kind duration groups simultaneous comment own-room teachers]} (query :week-moment week-num num)]
+  (let [{:keys [kind duration groups comment own-room teachers]} (query :week-moment week-num num)]
     [:div.moment
      [:div.kind-icon {:class kind}]
      [:div.kind (moment-kind-select week-num num kind)]
      [:div.duration [:input {:type :number :value duration
-                             :on-change #(dispatch [:update-duration week-num num (-> % .-target .-value)])}]]
-     [:div.groups [:input {:type :number :value groups
-                           :on-change #(dispatch [:update-groups week-num num (-> % .-target .-value)])}]]
+                             :on-change #(dispatch [:update-duration week-num num (-> % .-target .-value int)])}]]
+     [:div.groups [:input {:type :number :value (reduce + groups)
+                           :on-change #(dispatch [:update-group-count week-num num (-> % .-target .-value int)])}]]
      [:div.simultaneous
-      (when (> groups 1)
-        [:input {:type :checkbox :checked simultaneous
-                 :on-change #(dispatch [:toggle-simultaneous week-num num])}])]
+      (when (not= groups [1])
+        [:div.simul-editor
+         [:div.summary (str/join "+" (map str groups))]
+         [:div.editor
+          [:div.help-text "Placera grupper tillsammans för att de ska schemaläggas samtidigt."]
+          [:div.groups-display
+           (for [group groups]
+             [:div.group-display
+              (repeat group [:img {:src "img/group.svg"}])])]
+          [:div.group-shortcuts
+           [:div.all-simultaneous {:on-click #(dispatch [:make-simultaneous week-num num true])}
+            "Alla samtidigt"]
+           [:div.all-separate {:on-click #(dispatch [:make-simultaneous week-num num false])}
+            "Ingen samtidigt"]]]])]
      [:div.teachers [:input {:type :text :value (str teachers)
                              :on-change #(dispatch [:update-teachers week-num num (-> % .-target .-value)])}]]
      [:div.comment [:input {:type :text :value comment
@@ -102,7 +114,7 @@
        [:div.kind "Moment"]
        [:div.duration "Timmar"]
        [:div.groups "Grupper"]
-       [:div.simultaneous "Samtidigt"]
+       [:div.simultaneous "Fördelning"]
        [:div.teachers "Lärare"]
        [:div.comment "Kommentar"]
        [:div.own-room "Egen sal"]
