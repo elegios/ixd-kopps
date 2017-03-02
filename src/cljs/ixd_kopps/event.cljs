@@ -130,6 +130,24 @@
                        :default (setval [END] (repeat num-added 1) prev))))
                  db))))
 
+(reg-event-db :move-group
+  (fn [db [_ week-num num from-idx to-idx]]
+    (let [{:keys [selected-course selected-instance]} db]
+      (transform [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :groups]
+                 (fn [prev]
+                   (if to-idx
+                     (->> prev
+                          (transform [(must from-idx)] dec)
+                          (transform [(must to-idx)] inc)
+                          (filter pos?)
+                          vec)
+                     (->> prev
+                          (transform [(must from-idx)] dec)
+                          (setval [END] [1])
+                          (filter pos?)
+                          vec)))
+                 db))))
+
 (reg-event-db :update-comment
   (fn [db [_ week-num num comment]]
     (let [{:keys [selected-course selected-instance]} db]

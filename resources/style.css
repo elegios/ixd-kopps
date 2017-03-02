@@ -444,7 +444,7 @@ border: 0px;
   border-style: solid;
   border-color: transparent;
   transition-property: height, width, left, top, background-color, border-color;
-  transition-duration: 0.5s;
+  transition-duration: 0.2s;
 }
 .simul-editor:hover {
   width: 200px;
@@ -457,7 +457,7 @@ border: 0px;
   position: absolute;
   width: 100%;
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.2s;
 }
 .simul-editor > .editor {
   height: 200px;
@@ -465,7 +465,7 @@ border: 0px;
   transform-origin: 0px 0px;
   transform: scale(0, 0);
   opacity: 0;
-  transition: opacity 0.5s, transform 0.5s;
+  transition: opacity 0.2s, transform 0.2s;
   display: flex;
   flex-direction: column;
   padding: 5px;
