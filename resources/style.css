@@ -646,9 +646,12 @@ option.default {
 width: 100%;
 padding: 5px;
 margin-bottom: 0px;
+margin-top: 10px;
 font-family: Arial;
 font-size: 12px;
 background: #d2dbf2;
+display:block;
+float:left;
 }
 
 .rutaSch{
@@ -696,6 +699,14 @@ display: block; /* Make it into a block element to fill the whole list */
 
 #myUL li a:hover {
 border-bottom-color: #000000;
+}
+
+.subheaderSch {
+  margin-right: 0px;
+  display: flex;
+  font-size: 12pt;
+  font-family: georgia;
+  margin-top: 40px;
 }
 
 /*.search input {
