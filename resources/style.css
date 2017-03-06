@@ -170,7 +170,7 @@ margin: 0px 0px 10px 0px;
 #searchDiv {
 background: #FFFFFF;
 height: 100%;
-width: 80%;
+width: 100%;
 margin-bottom:20px;
 }
 
@@ -208,18 +208,6 @@ font-style: center
 margin-top:10px;
 } 
 
-#textP{
-margin-left: 25px;
-}
-
-#textHP1{
-margin-left: 250px;
-}
-
-#textHP2{
-  margin-left: 107px;
-}
-
 #textAreaSchedule{
   width: 80%;
   border: 1px solid #CCCCCC;
@@ -233,32 +221,86 @@ margin-left: 250px;
   font-size: 24px;
   font-weight: normal;
   padding-bottom:0px;
-  border-bottom: 1px solid #CCCCCC;
-  width:600px;
+  border-bottom: 1px solid #f2f2f2;
+  width:100%;
   margin-top:5px;
 }
 
-
-
-#textInput2{
-  width: 240px;
-  box-sizing: border-box;
-  border-radius: 3px;
-  border-style: solid;
-  border-color: gray;
-  border-width: 1px;
-  margin-left: 20px;
-}
-
-#textcolorIndex{
-  color: black;
-}
-
-#myDiv {
-background: #FFFFFF;
+.myCourses {
+background: #fdfdfd;
 height: auto;
-width: 90%;
-margin-bottom: 500px
+width: 100%;
+margin-bottom:5px;
+}
+
+.myCourse{
+background: #fdfdfd;
+margin-bottom: 5px;
+width: 100%;
+padding:10px;
+font: 12px arial #000;
+}
+
+.myCourse:hover{
+background: #fff;
+font: 12px arial #1954a6;
+}
+
+label {
+color: #000000;
+font-weight: normal;
+display: block;
+background:none;
+}
+
+.textKod{
+margin-left: 0px;
+margin-bottom:0px;
+}
+
+.textP{
+width: 400px;
+margin-left: 10px;
+margin-bottom:0px;
+}
+
+.textHP{
+margin-left: 10px;
+width:50px;
+margin-bottom:0px;
+}
+
+.courseStatusUtkast{
+width: 100px;
+float: right;
+background: none;
+padding: 3px;
+border: 1px solid #fab919;
+border-radius: 10px;
+margin: -5px;
+color: #fab919;
+}
+
+.courseStatusSkickat{
+width: 100px;
+float: right;
+background: none;
+padding: 3px;
+border: 1px solid #b0c92b;
+border-radius: 10px;
+margin: -5px;
+color: #b0c92b;
+}
+
+.courseStatusGodkand{
+width: 100px;
+float: right;
+background: none;
+padding: 3px;
+border: 1px solid #24a0d8;
+border-radius: 10px;
+margin: -5px;
+color: #24A0D8;
 }
 
 /* Kursinfo */
@@ -567,7 +609,7 @@ border-radius: 0px 0px 10px 10px;
 
 #myInput {
 height: 26px;
-width: 500px;
+width: 100%;
 padding: 0 12px 0 25px;
 background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
 border: 1px solid #CCCCCC;
@@ -595,10 +637,6 @@ text-decoration: none; /* Remove default text underline */
 font: 14px Arial; /* Increase the font-size */
 color: black; /* Add a black text color */
 display: block; /* Make it into a block element to fill the whole list */
-}
-
-#myUL li a:hover {
-border-bottom-color: #000000;
 }
 
 /*.search input {
