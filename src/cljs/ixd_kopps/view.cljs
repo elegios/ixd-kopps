@@ -36,10 +36,21 @@
          [:div.summary (str/join "+" (map str groups))]
          [:div.editor
           [:div.help-text "Placera grupper tillsammans för att de ska schemaläggas samtidigt."]
-          [:div.groups-display
-           (for [group groups]
-             [:div.group-display
-              (repeat group [:img {:src "img/group.svg"}])])]
+          [:div.groups-display {:on-drag-over #(.preventDefault %)
+                                :on-drop (fn [e]
+                                           (.preventDefault e)
+                                           (.stopPropagation e)
+                                           (dispatch [:move-group week-num num (-> e .-dataTransfer (.getData "origin-group") int) nil]))}
+           (for [[i group] (zipmap (range) groups)]
+             [:div.group-display {:on-drag-over #(.preventDefault %)
+                                  :on-drop (fn [e]
+                                             (.preventDefault e)
+                                             (.stopPropagation e)
+                                             (dispatch [:move-group week-num num (-> e .-dataTransfer (.getData "origin-group") int) i]))}
+              (repeat group [:img {:src "img/group.svg"
+                                   :draggable true
+                                   :on-drag-start #(-> % .-dataTransfer (.setData "origin-group" i))}])])]
+
           [:div.group-shortcuts
            [:div.all-simultaneous {:on-click #(dispatch [:make-simultaneous week-num num true])}
             "Alla samtidigt"]
