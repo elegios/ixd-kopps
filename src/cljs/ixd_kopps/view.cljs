@@ -158,8 +158,10 @@
 (defn main []
   (let [num-weeks (query :num-weeks)
         can-add-weeks (query :can-add-weeks)
-        ids (query :week-ids)]
+        ids (query :week-ids)
+        {:keys [start-week end-week]} (query :start-end-week)]
     [:div.main
+     [:div.course-duration (str "Kursen pågår i " num-weeks " veckor (Vecka " start-week " - Vecka " end-week ")")]
      [:div.weeks
        (for [[num id] (map vector (range num-weeks) ids)]
          ^{:key id} [week num])

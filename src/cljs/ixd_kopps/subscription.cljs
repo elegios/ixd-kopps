@@ -12,6 +12,14 @@
   (fn [{:keys [schedule]} _]
     (count schedule)))
 
+(reg-sub :start-end-week
+  (fn [_ _]
+    (subscribe [:selected-course-instance]))
+  (fn [{:keys [schedule start]} _]
+    (let [start (:week-num start)]
+      {:start-week start
+       :end-week (+ start -1 (count schedule))})))
+
 (reg-sub :week-ids
   (fn [_ _]
     (subscribe [:selected-course-instance]))
