@@ -331,6 +331,8 @@ margin-bottom: 20px;
 margin-top:10px;
 padding:5px;
 font-weight: bold;
+cursor: pointer;
+transition: background-color 0.1s;
 }
 .saveButton:hover{
 background:#b0c92b;
@@ -349,6 +351,8 @@ margin-bottom: 20px;
 padding: 5px;
 margin-top: 10px;
 font-weight: bold;
+cursor: pointer;
+transition: background-color 0.1s;
 }
 
 .sendButton:hover{
@@ -686,6 +690,10 @@ border: 0px;
 .actions img {
   height: 17px;
   margin-left: 2px;
+  transition: transform 0.1s;
+}
+.actions img:not(.disabled):hover {
+  transform: scale(1.1, 1.1);
 }
 .actions img.disabled {
   cursor: auto;
@@ -723,6 +731,7 @@ option.default {
 }
 
 .weeks > .summary {
+  margin-top: 15px;
   border-style: solid;
   border-color: #D9D9D9;
   border-width: 1px;
