@@ -205,8 +205,46 @@
                 </div>
 
               </div>
-              <div class="sendButton"><center>Skicka</center></div>
+              <div class="sendButton" id="myBtn"><center>Skicka</center></div>
               <div class="saveButton"><center>Spara</center></div>
+
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <div class="beskrivningSch" style="margin-top: 0px; margin-bottom:30px;">
+                    <div style="float: left; width: 100%;">
+                      <p class="subheaderSch">Skickat till schemaläggarna</p>
+                    </div>
+                  </div>
+                  <br>
+                  <p style="margin-left:40px;;">Tack! Nu har din schemaläggning skickats till schemaadministartionen. Planering sker.</p>
+                  <div class="sendButton close" href="kursinfosida.html" style="margin-right:30px; margin-top:-30px;"><center>Ok</center></div>
+                </div>
+
+              </div>
+
+              <script>
+              
+              var modal = document.getElementById('myModal');
+              var btn = document.getElementById("myBtn");
+
+              var div = document.getElementsByClassName("close")[0];
+
+              btn.onclick = function() {
+                  modal.style.display = "block";
+              }
+              div.onclick = function() {
+                  modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal) {
+                      modal.style.display = "none";
+                      //window.location.href = "localhost:3000/kursinfosida.html";
+                  }
+              }
+              </script>
               
             </div>
           </div>
