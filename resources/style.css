@@ -243,11 +243,11 @@ font: 12px arial;
   background: white;
 }
 
-.myCourse label {
+.myCourse label:not(.courseStatusGodkand):not(.courseStatusSkickat):not(.courseStatusUtkast) {
   color: #000;
   cursor: pointer;
 }
-.myCourse:hover label {
+.myCourse:hover label:not(.courseStatusGodkand):not(.courseStatusSkickat):not(.courseStatusUtkast) {
 background: #fff;
 color: #1954a6;
 }
