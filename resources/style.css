@@ -684,8 +684,9 @@ border: 0px;
   margin-right: 2px;
 }
 .actions > .hovered {
-  visibility: hidden;
+  opacity: 0;
   z-index: 1;
+  transition: opacity 0.08s;
 }
 .actions img {
   height: 17px;
@@ -703,7 +704,7 @@ border: 0px;
   cursor: pointer;
 }
 .moment:hover .actions > .hovered {
-  visibility: visible;
+  opacity: 1;
 }
 
 .week-header {
