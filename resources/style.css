@@ -11,7 +11,7 @@ background-attachment: fixed;
 margin: 20px auto;
 padding: 0px;
 width: 1000px;
-background-color: #FFFFFF;
+background-color: #fdfdfd;
 overflow: hidden;
 }
 
@@ -24,7 +24,7 @@ margin-bottom: 20px;
 }
 
 #header {
-background: #FFFFFF;
+background: #Fdfdfd;
 width: 980px;
 height: 100px;
 margin: 0px 0px 0px 0px;
@@ -40,7 +40,7 @@ float: left;
 width: 220px;
 margin: 0px 0px 0px 0px;
 padding: 5px;
-background: #FFFFFF;
+background: #Fdfdfd;
 border-top-width: 0px;
 }
 
@@ -117,7 +117,7 @@ float: right;
 padding: 0px;
 margin-right: 20px;
 padding-left: 20px;
-border-left: 1px #f2f2f2 solid;
+border-left: 1px #cccccc solid;
 }
 
 /* Flikar och blå linje*/
@@ -168,7 +168,7 @@ margin: 0px 0px 10px 0px;
 /* Startsida */
 
 #searchDiv {
-background: #FFFFFF;
+background: #fdfdfd;
 height: 100%;
 width: 100%;
 margin-bottom:20px;
@@ -221,7 +221,7 @@ margin-top:10px;
   font-size: 24px;
   font-weight: normal;
   padding-bottom:0px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #fdfdfd;
   width:100%;
   margin-top:5px;
 }
@@ -314,13 +314,50 @@ margin: -5px;
 color: #24A0D8;
 }
 
+.saveButton{
+width: 150px;
+float: right;
+background: #b9dc48;
+padding: 3px;
+border: 1px solid #b9dc48;
+border-radius: 10px;
+margin-right: 0px;
+margin-bottom: 20px;
+margin-top:10px;
+padding:5px;
+font-weight: bold;
+}
+.saveButton:hover{
+background:#b0c92b;
+border-color: #b0c92b;
+}
+
+.sendButton{
+width: 150px;
+float: right;
+background: #8dc3ed;
+padding: 3px;
+border: 1px solid #8dc3ed;
+border-radius: 10px;
+margin-left: 5px;
+margin-bottom: 20px;
+padding: 5px;
+margin-top: 10px;
+font-weight: bold;
+}
+
+.sendButton:hover{
+background:#009ede;
+border-color: #009ede;
+}
+
 /* Kursinfo */
 
 .rubrik p{
 font-family:  Georgia;
 font-size: 24px;
 color: #000000;
-background-color: #FFFFFF;
+background-color: #Fdfdfd;
 margin-top: 5px;
 }
 .rubrik {
@@ -335,7 +372,7 @@ margin-top: 5px;
 font-family:  Georgia;
 font-size: 18px;
 color: #000000;
-background-color: #FFFFFF;
+background-color: #fdfdfd;
 margin-top: 5px;
 }
 
@@ -378,7 +415,7 @@ width: 340px;
 height: 140px;
 padding: 5px;
 margin-top: 5px;
-border: 1px solid #CCCCCC;
+border: 1px solid #ffffff;
 border-top: none;
 border-radius: 0px 0px 10px 10px;
 }
@@ -755,7 +792,7 @@ display: block;
 
 #myUL li a {
 border-bottom: 1px solid #ddd; /* Add a border to all links */
-background-color: #ffffff; /* Grey background color */
+background-color: #Fdfdfd; /* Grey background color */
 padding: 10px 10px 10px 10px; /* Add some padding */
 text-decoration: none; /* Remove default text underline */
 font: 14px Arial; /* Increase the font-size */
