@@ -124,31 +124,34 @@
                 </div>
               </div>
 
-              <div class="rutaSch" style="display:block; float:left; width: 100%; padding-bottom:20px; border-radius: 0px;">
-                <div style="float: left; display:block; float:left; margin-top: 20px;">
-                  <input type="text" name="kurskod" style="width: 70px;">
+              <div class="rutaSch" style="display:block; float:left; width: 100%; margin-bottom:0px;">
+                <div style="float: left; display:block; float:left; ">
+                  <input type="text" name="kurskod">
                 </div>
 
-                <div style="float: left; width: 120px; margin-left: 105px; margin-top: 20px;">
+                <div style="float: left; width: 120px; margin-left: 105px; ">
                   <select>
-                    <option value="P1">VT17-1</option>
-                    <option value="P2">HT17-2</option>
-                    <option value="P3">VT16-1</option>
-                    <option value="p4">HT16-2</option>
+                    <option></option>
+                    <option value="P1">P1</option>
+                    <option value="P2">P2</option>
+                    <option value="P3">P3</option>
+                    <option value="p4">P4</option>
+                    <option value="pS">PS</option>
                   </select>
                 </div>
 
-                <div style="float: left; width: 120px; margin-left: 61px; margin-top: 20px;">
+                <div style="float: left; width: 120px; margin-left: 61px; ">
                   <select>
-                    <option value="P1">Föreläsning</option>
-                    <option value="P2">Seminarie</option>
-                    <option value="P3">Laboration</option>
-                    <option value="P4">Övning</option>
+                    <option value=""></option>
+                    <option value="Frl">Föreläsning</option>
+                    <option value="Sem">Seminarie</option>
+                    <option value="Lab">Laboration</option>
+                    <option value="Ovn">Övning</option>
                   </select>
                 </div>
 
-                <div style="float: left; display:block; float:left; margin-left: 125px; margin-top: 20px;">
-                  <input type="text" name="AntalStu" style="width: 70px;">
+                <div style="float: left; display:block; float:left; margin-left: 125px;">
+                  <input type="text" name="AntalStu">
                 </div>
 
               </div>
@@ -156,7 +159,6 @@
             </div>
           </div>
 
-          <br>
 
           <p class="subheaderSch">Tentamen</p>
 
@@ -169,16 +171,18 @@
                 <div style="float: left; width: 80px; margin-left: 60px;">Period
                 </div>
               </div>
-              <div class="rutaSch" style="display:block; float:left; width: 100%; padding-bottom:20px; border-radius: 0px;">
-                <div style="float: left; display:block; float:left; margin-top: 20px;">
-                  <input type="text" name="kurskod" style="width: 70px;">
+              <div class="rutaSch" style="display:block; float:left; width: 100%; border-radius: 3px;">
+                <div style="float: left; display:block; float:left;">
+                  <input type="text" name="kurskod">
                 </div>
-                <div style="float: left; width: 120px; margin-left: 105px; margin-top: 20px;">
+                <div style="float: left; width: 120px; margin-left: 105px;">
                   <select>
-                    <option value="P1">VT17-1</option>
-                    <option value="P2">HT17-2</option>
-                    <option value="P3">VT16-1</option>
-                    <option value="p4">HT16-2</option>
+                    <option></option>
+                    <option value="P1">P1</option>
+                    <option value="P2">P2</option>
+                    <option value="P3">P3</option>
+                    <option value="p4">P4</option>
+                    <option value="pS">PS</option>
                   </select>
                 </div>
 
@@ -188,23 +192,17 @@
             </div>
           </div>
 
-          <br>
-
+        
           <p class="subheaderSch">Övrigt</p>
 
           <div class="row">
             <div class="col-md-12">
 
-              <div class="beskrivningSch" style="padding-bottom:10px">
+              <div class="beskrivningSch">
                 <div style="float: left; width: 250px;">Övriga kommentarer till schemaläggarna
                 </div>
               </div>
-              <div class="rutaSch" style="display:block; float:left; width: 100%; padding-bottom:10px; border-radius: 0px;">
-                <div style="display:block; float:left; margin-top: 10px; width: 100%;">
-                  <input type="text" name="kurskod" style="width: 100%; height: 70px">
-                </div>
-
-              </div>
+              <textarea style="width:100%; "></textarea>
               <div class="sendButton" id="myBtn"><center>Skicka</center></div>
               <div class="saveButton"><center>Spara</center></div>
 
@@ -213,14 +211,14 @@
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                  <div class="beskrivningSch" style="margin-top: 0px; margin-bottom:30px;">
+                  <div class="beskrivningSch" style="margin-top: -10px;">
                     <div style="float: left; width: 100%;">
-                      <p class="subheaderSch">Skickat till schemaläggarna</p>
+                      <p align=center style="margin-top: 10px; margin-bottom:5px; font-size:20px"><center>Skickat till schemaläggarna</center></p>
                     </div>
                   </div>
                   <br>
-                  <p style="margin-left:40px;;">Tack! Schemaunderlaget har skickats till schemaläggningen. Planering sker.</p>
-                  <div class="sendButton close" href="kursinfosida.html" style="margin-right:30px; margin-top:-30px;"><center>Ok</center></div>
+                  <div class="rutaSch" style="width:100%; height:90px"><center>Tack! Schemaunderlaget har skickats till schemaläggningen. Planering sker.<br></div>
+                  <center><div class="sendButton close" href="kursinfosida.html" style="margin-top:-45px; margin-right:310px"><center>Ok</center></div></center>
                 </div>
 
               </div>
