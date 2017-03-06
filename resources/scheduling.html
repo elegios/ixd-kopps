@@ -52,7 +52,7 @@
             <p>Schemaplanering</p>
           </div>
           <div class="statusSchema">
-          <label class="courseStatusSchema"><center>Utkast</center></label>
+          <label class="courseStatusSchema" id="status-label"><center id="status-text">Utkast</center></label>
           </div>
           <br>
           <label>Kurstillfälle:</label>
@@ -231,9 +231,13 @@
               var btn = document.getElementById("myBtn");
 
               var div = document.getElementsByClassName("close")[0];
+              var statusLabel = document.getElementById("status-label");
+              var statusText = document.getElementById("status-text");
 
               btn.onclick = function() {
                   modal.style.display = "block";
+                  statusLabel.className = "courseStatusSchemaSkickat";
+                  statusText.innerHTML = "Skickat";
               }
               div.onclick = function() {
                   modal.style.display = "none";

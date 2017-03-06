@@ -206,7 +206,7 @@ height: 30px;
 float: right;
 font-style: center
 margin-top:10px;
-} 
+}
 
 #textAreaSchedule{
   width: 80%;
@@ -295,6 +295,16 @@ color: #fab919;
     margin-top: -42px;
     float: right;
     color: #fab919;
+}
+.courseStatusSchemaSkickat{
+    width: 100px;
+    background: none;
+    padding: 5px;
+    border: 2px solid #b0c92b;
+    border-radius: 10px;
+    margin-top: -42px;
+    float: right;
+    color: #b0c92b;
 }
 
 .courseStatusSkickat{
@@ -808,7 +818,7 @@ border: 1px solid #CCCCCC;
 
 #myInput:focus + #myUL{
 display: block;
-} 
+}
 
 #myUL li a {
 border-bottom: 1px solid #ddd; /* Add a border to all links */
@@ -892,8 +902,8 @@ outline: none;
 border-color: #CCC;
 }
 
-.search input:focus + .results { 
-display: block 
+.search input:focus + .results {
+display: block
 }
 
 .search .results {
@@ -914,12 +924,12 @@ width:300px;
 margin-top: 10px;
 }
 
-.search .results li { 
-display: block 
+.search .results li {
+display: block
 }
 
-.search .results li:first-child { 
-margin-top: -1px 
+.search .results li:first-child {
+margin-top: -1px
 }
 
 .search .results li:first-child:before, .search .results li:first-child:after {
@@ -944,12 +954,12 @@ border-bottom: 5px solid #fdfdfd;
 top: -10px;
 }
 
-.search .results li:first-child:hover:before, .search .results li:first-child:hover:after { 
-display: none 
+.search .results li:first-child:hover:before, .search .results li:first-child:hover:after {
+display: none
 }
 
-.search .results li:last-child { 
-margin-bottom: -1px 
+.search .results li:last-child {
+margin-bottom: -1px
 }
 
 .search .results a {
@@ -964,8 +974,8 @@ border-radius: 3px;
 overflow: hidden;
 }
 
-.search .results a span { 
-font-weight: 200 
+.search .results a span {
+font-weight: 200
 }
 
 .search .results a:before {
@@ -995,5 +1005,5 @@ color:  none;
 font-weight: 200;
 }
 
-.lt-ie9 .search input { 
-line-height: 26px } 
+.lt-ie9 .search input {
+line-height: 26px }
