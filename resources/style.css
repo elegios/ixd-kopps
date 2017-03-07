@@ -733,7 +733,7 @@ border: 0px;
 .week-header > .actions {
   flex-grow: 1;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .week-header > .actions > button {
   white-space: nowrap;
