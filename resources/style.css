@@ -251,7 +251,8 @@ font: 14px arial;
 }
 
 .myCourse:hover label:not(.courseStatusGodkand):not(.courseStatusSkickat):not(.courseStatusUtkast) {
-background: #fff;
+  background: #fff;
+  color: #1954a6;
 }
 
 label {
@@ -584,7 +585,7 @@ border: 0px;
   position: relative;
   left: 0px;
   top: 0px;
-  background-color: white;
+  background-color: transparent;
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
@@ -597,6 +598,7 @@ border: 0px;
   left: -80px;
   top: -80px;
   border-color: black;
+  background-color: white;
 }
 .simul-editor > .summary {
   position: absolute;
