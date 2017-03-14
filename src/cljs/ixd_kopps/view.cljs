@@ -92,7 +92,7 @@
     [:div.week (when (or is-removed is-added) {:class :minimized})
      [:div.week-header
       [:div.number (str "Vecka " number)
-       [:span.course-number (str "Kursvecka " (inc week-num))]]
+       [:span.course-number (str (inc week-num))]]
       [:div.actions
        [:img {:src "img/add.svg"
               :title (if can-add-weeks "Lägg till vecka" "Schemaplaneringen är full")
