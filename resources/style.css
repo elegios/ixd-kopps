@@ -537,12 +537,16 @@ border: 0px;
   border-width: 1px;
 }
 .week .kind-icon {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
 }
 .moment > .kind-icon {
   border-radius: 20px;
-  transition: background-color 1s;
+  transition: background-color 1s, color 1s;
+  font-size: 8pt;
+  font-weight: bold;
+  text-align: center;
 }
 .moment > .kind-icon.lecture {
   background-color: #24A0D8;

@@ -70,7 +70,21 @@
   (fn [_ _]
     (subscribe [:selected-course-instance]))
   (fn [instance [_ week-num num]]
-    (get-in instance [:schedule week-num num])))
+    (let [{:keys [kind] :as moment} (get-in instance [:schedule week-num num])]
+      (->> (:schedule instance)
+           (sequence
+             (comp (map-indexed
+                     (fn [idx week]
+                       (map conj (map-indexed list week) (repeat idx))))
+                   cat
+                   (filter (fn [[week-idx moment-idx mom]]
+                             (and (= kind (:kind mom))
+                                  (or (< week-idx week-num)
+                                      (and (= week-idx week-num)
+                                           (<= moment-idx num))))))))
+           count
+           (assoc moment :number)))))
+
 
 (reg-sub :copiable-weeks
   (fn [_ _]

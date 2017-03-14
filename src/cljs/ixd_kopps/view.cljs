@@ -22,9 +22,9 @@
 
 (defn week-moment
   [week-num num]
-  (let [{:keys [kind duration groups comment own-room teachers]} (query :week-moment week-num num)]
+  (let [{:keys [kind duration groups comment own-room teachers number]} (query :week-moment week-num num)]
     [:div.moment
-     [:div.kind-icon {:class kind}]
+     [:div.kind-icon {:class kind} (str number)]
      [:div.kind (moment-kind-select week-num num kind)]
      [:div.duration [:input {:type :number :value duration
                              :on-change #(dispatch [:update-duration week-num num (-> % .-target .-value int)])}]]
