@@ -152,7 +152,6 @@
     [:div.main
      [:div.cancel-edit (when editing {:class "editing"
                                       :on-click #(dispatch [:end-group-edit])})]
-     [:div.course-duration (str "Kursen pågår i " num-weeks " veckor (Vecka " start-week " - Vecka " end-week ")")]
      [:div.weeks
        (for [[num id] (map vector (range num-weeks) ids)]
          ^{:key id} [week num])
