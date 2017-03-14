@@ -10,8 +10,9 @@ background-attachment: fixed;
 #wrapper {
 margin: 20px auto;
 padding: 0px;
+
 width: 1000px;
-background-color: #f2f2f2;
+background-color: #fff;
 overflow: hidden;
 }
 
@@ -24,7 +25,7 @@ margin-bottom: 0px;
 }
 
 #header {
-background: #f2f2f2;
+background: #fff;
 width: 980px;
 height: 100px;
 margin: 0px 0px 0px 0px;
@@ -39,8 +40,9 @@ padding-top: 10px;
 float: left;
 width: 220px;
 margin: 0px 0px 0px 0px;
-padding: 5px;
-background: #F2f2f2;
+padding: 5px 5px 200px 5px;
+margin-top: -10px;
+background: #f9f9f9;
 border-top-width: 0px;
 }
 
@@ -112,12 +114,12 @@ height:30px;
 
 #content {
 width: 760px;
-background: none;
+background: #fff;
 float: right;
 padding: 0px;
 margin-right: 20px;
 padding-left: 20px;
-border-left: 1px #cccccc solid;
+border-left: 0px #cccccc solid;
 }
 
 /* Flikar och blå linje*/
@@ -179,7 +181,7 @@ width: 60px;
 box-sizing: border-box;
 border-radius: 3px;
 border-style: solid;
-border-color: gray;
+border-color: transparent;
 border-width: 1px;
 }
 
@@ -188,9 +190,9 @@ margin-left: 20px;
 }
 
 #selectPeriod{
-margin-right: 20px;
 background:#fff;
 border: 0px;
+margin-bottom: 5px;
 }
 #searchButton{
 border-radius: 3px;
@@ -378,7 +380,7 @@ border-color: #009ede;
 font-family:  Georgia;
 font-size: 24px;
 color: #000000;
-background-color: #f2f2f2;
+background-color: none;
 margin-top: 5px;
 }
 .rubrik {
@@ -399,16 +401,25 @@ margin-top: 5px;
 
 .beskrivning{
 width: 350px;
-padding: 5px;
-margin-top: 10px;
+padding: 0px;
+margin-top: 20px;
+margin-bottom: 0px;
+font-family: Georgia;
+font-size: 16px;
+color: #1954a6;
+background: none;
+border-bottom: 0px solid #d84697; 
+} #
+
+.op p{
 font-family: Arial;
-font-size: 12px;
-background: #d2dbf2;
+font-size: 120px
+width: 50%;
 }
 
 .ruta{
 width: 350px;
-padding: 5px;
+padding-top: 0px;
 background: #fff;
 border: 1px solid #fff;
 border-top: none;
@@ -424,22 +435,25 @@ padding-bottom: 5px;
 .ruta input{
 border-radius: 3px;
 border-style: solid;
-border-color: #CCCCCC;
+border-color: #f6e1f0;
 border-width: 1px;
-padding: 3px;
+padding: 5px
 margin-top:2px;
-margin-bottom:5px;
+margin-bottom:3px;
+width:100%;
+background: #f6e1f0 ;
 }
 
 textarea {
 width: 350px;
 height: 140px;
 padding: 5px;
-margin-top: 5px;
+margin-top:50px;
 margin-bottom:10px;
-border: 1px solid #ffffff;
+border: 1px solid #fafafa;
+background: #fafafa;
 border-top: none;
-border-radius: 0px 0px 3px 3px;
+border-radius: 3px;
 }
 textarea:focus {
 border: 0px;
@@ -461,6 +475,9 @@ border: 0px;
   align-items: stretch;
   font-size: 10pt;
 }
+.moment{
+margin-bottom: 3px;
+}
 .week .header {
   display: flex;
   font-size: 9pt;
@@ -477,7 +494,8 @@ border: 0px;
   display: flex;
   flex-direction: column;
   border-style: solid;
-  border-color: #D9D9D9;
+  background: #fafafa;
+  border-color: #fafafa;
   border-width: 1px;
   margin-bottom: 15px;
   transition-property: max-height, margin-bottom, border-width;
@@ -494,13 +512,21 @@ border: 0px;
   width: 200px;
 }
 .course-number {
-  margin-left: 30px;
-  font-size: 12px;
-  color: gray;
+  padding: 5px;
+  margin: -5px -5px -5px -5px;
+  font-size: 14px;
+  color: #fff;
+  float:left;
+  background: #7197d0;
+  font-size: 16px;
 }
 .week > .number {
   text-align: center;
   margin-right: 2px;
+}
+
+.week .week-content{
+background:#fafafa;
 }
 .week > .week-content {
   display: flex;
@@ -525,7 +551,7 @@ border: 0px;
   box-sizing: border-box;
   border-radius: 3px;
   border-style: solid;
-  border-color: gray;
+  border-color: transparent;
   border-width: 1px;
 }
 .weeks input[type=text] {
@@ -533,7 +559,7 @@ border: 0px;
   box-sizing: border-box;
   border-radius: 3px;
   border-style: solid;
-  border-color: gray;
+  border-color: transparent;
   border-width: 1px;
 }
 .week .kind-icon {
@@ -565,6 +591,11 @@ border: 0px;
 }
 .week .kind {
   width: 78px;
+}
+.week .kind select {
+  background-color: #fff;
+  border:1px solid transparent;
+  height: 23px;
 }
 .week .duration {
   width: 50px;
@@ -693,6 +724,10 @@ border: 0px;
   width: 50px;
   text-align: center;
 }
+.week .own-room input {
+  width: 20px;
+  border: 1px solid transparent;
+}
 .week-content > .moment > .actions {
   margin-right: 0px;
 }
@@ -726,13 +761,15 @@ border: 0px;
 }
 
 .week-header {
-  display: flex;
-  background-color: #D3DCF1;
-  font-size: 12pt;
-  font-family: georgia;
-  padding: 5px;
-  cursor: grab;
+display: flex;
+background-color: #a4b9e1;
+font-size: 12pt;
+font-family: georgia;
+padding: 5px;
+cursor: grab;
+color: #fff ;
 }
+
 .week-header:active {
   cursor: grabbing;
 }
@@ -751,19 +788,21 @@ option.default {
 
 .weeks > .summary {
   margin-top: 15px;
-  border-style: solid;
-  border-color: #D9D9D9;
-  border-width: 1px;
+  background:#fafafa;
+  border: 1px solid transparent;
+  border-radius: 3px;
 }
 .weeks > .summary > .header {
   margin-right: 0px;
   display: flex;
-  background-color: #D3DCF1;
-  font-size: 12pt;
+  background-color: #7197d0;
+  font-size: 10pt;
   font-family: georgia;
+  color:#fff;
 }
 .weeks > .summary > .summary-row {
   display: flex;
+  padding:2px;
 }
 .weeks > .summary > * > * {
   flex-grow: 1;
@@ -773,13 +812,18 @@ option.default {
 .end-of-schedule {
   display: flex;
   justify-content: center;
+  background: #fab919; 
+  padding: 2px; 
+  color:#fff; 
+  border-radius: 3px; 
+  border: 1px #fff;"
 }
 .add-new-week {
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #B0C92B;
-  border-radius: 10px;
+  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -790,29 +834,54 @@ margin-bottom: 0px;
 margin-top: 10px;
 font-family: Arial;
 font-size: 12px;
-background: #d2dbf2;
+background: none;
 display:block;
 float:left;
 }
 
+.rutaSch .delruta{
+width: 25%;
+float:left;
+}
+.rutaSch .delruta p{
+font-family: arial;
+font-size: 12px;
+
+}
+
+.fargadlinje{
+width:100%;
+color: #fff;
+border: 1px solid transparent;
+border-radius: 3px;
+padding:3px;
+}
+.fargadlinje p{
+margin-bottom: 0px;
+}
+
 .rutaSch{
 width: 100%;
-padding:10px;
-padding-left: 5px;
+padding:5px;
 margin-top: 0px;
-border: 1px solid #fff;
-background: #fff;
-border-top: none;
-border-radius: 0px 0px 3px 3px;
+margin-bottom: 20px;
+border: 1px solid transparent;
+background: #fafafa;
+border-radius: 3px;
 float: left;
 }
+
 .rutaSch input{
 width: 70px;
 padding: 2px;
-border: 1px solid #fafafa;
-background: #fafafa;
+border: 1px solid #ffffff;
+background: #ffffff;
 border-radius: 3px;
 }
+.rutaSch p{
+font: arial;
+}
+
 .rutaSch select{
 padding: 2px;
 border: 1px solid #fafafa;
@@ -905,123 +974,3 @@ text-decoration: none;
 cursor: pointer;
 opacity: 1;
 }
-
-/*.search input {
-height: 26px;
-width: 500px;
-padding: 0 12px 0 25px;
-background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
-border: 1px solid #CCCCCC;
-border-radius: 13px;
-}
-
-.search input:focus {
-outline: none;
-border-color: #CCC;
-}
-
-.search input:focus + .results {
-display: block
-}
-
-.search .results {
-display: none;
-position: center;
-top: 35px;
-left: 0;
-right: 0;
-z-index: 10;
-padding: 0;
-margin: 0;
-border-width: 1px;
-border-style: solid;
-border-color: #cccccc;
-border-radius: 3px;
-background-color: #ffffff;
-width:300px;
-margin-top: 10px;
-}
-
-.search .results li {
-display: block
-}
-
-.search .results li:first-child {
-margin-top: -1px
-}
-
-.search .results li:first-child:before, .search .results li:first-child:after {
-display: block;
-content: '';
-width: 0;
-background-color: #F0c900;
-height: 0;
-position: absolute;
-left: 50%;
-margin-left: -5px;
-border: 5px outset transparent;
-}
-
-.search .results li:first-child:before {
-border-bottom: 5px solid #c4c7d7;
-top: -11px;
-}
-
-.search .results li:first-child:after {
-border-bottom: 5px solid #fdfdfd;
-top: -10px;
-}
-
-.search .results li:first-child:hover:before, .search .results li:first-child:hover:after {
-display: none
-}
-
-.search .results li:last-child {
-margin-bottom: -1px
-}
-
-.search .results a {
-display: block;
-position: relative;
-margin: 0 -1px;
-padding: 6px 40px 6px 10px;
-color: #CCCCCC;
-font-weight: 500;
-border: 1px solid transparent;
-border-radius: 3px;
-overflow: hidden;
-}
-
-.search .results a span {
-font-weight: 200
-}
-
-.search .results a:before {
-content: '';
-width: 18px;
-height: 18px;
-position: absolute;
-top: 50%;
-right: 10px;
-margin-top: -9px;
-background: url("http://cssdeck.com/uploads/media/items/7/7BNkBjd.png") 0 0 no-repeat;
-}
-
-.search .results a:hover {
-text-decoration: none;
-color: #000000;
-
-}
-
-:-moz-placeholder {
-color: #a7aabc;
-font-weight: 200;
-}
-
-::-webkit-input-placeholder {
-color:  none;
-font-weight: 200;
-}
-
-.lt-ie9 .search input {
-line-height: 26px }
