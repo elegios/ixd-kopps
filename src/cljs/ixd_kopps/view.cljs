@@ -22,7 +22,7 @@
 
 (defn week-moment
   [week-num num]
-  (let [{:keys [kind duration groups comment own-room teachers number]} (query :week-moment week-num num)]
+  (let [{:keys [kind duration groups comment own-room teachers number groups-edit]} (query :week-moment week-num num)]
     [:div.moment
      [:div.kind-icon {:class kind} (str number)]
      [:div.kind (moment-kind-select week-num num kind)]
@@ -30,32 +30,20 @@
                              :on-change #(dispatch [:update-duration week-num num (-> % .-target .-value int)])}]]
      [:div.groups [:input {:type :number :value (reduce + groups)
                            :on-change #(dispatch [:update-group-count week-num num (-> % .-target .-value int)])}]]
-     [:div.simultaneous
-      (when (not= groups [1])
-        [:div.simul-editor
-         [:div.summary (str/join "+" (map str groups))]
-         [:div.editor
-          [:div.help-text "Placera grupper tillsammans för att de ska schemaläggas samtidigt."]
-          [:div.groups-display {:on-drag-over #(.preventDefault %)
-                                :on-drop (fn [e]
-                                           (.preventDefault e)
-                                           (.stopPropagation e)
-                                           (dispatch [:move-group week-num num (-> e .-dataTransfer (.getData "origin-group") int) nil]))}
-           (for [[i group] (zipmap (range) groups)]
-             [:div.group-display {:on-drag-over #(.preventDefault %)
-                                  :on-drop (fn [e]
-                                             (.preventDefault e)
-                                             (.stopPropagation e)
-                                             (dispatch [:move-group week-num num (-> e .-dataTransfer (.getData "origin-group") int) i]))}
-              (repeat group [:img {:src "img/group.svg"
-                                   :draggable true
-                                   :on-drag-start #(-> % .-dataTransfer (.setData "origin-group" i))}])])]
-
-          [:div.group-shortcuts
-           [:div.all-simultaneous {:on-click #(dispatch [:make-simultaneous week-num num true])}
-            "Alla samtidigt"]
-           [:div.all-separate {:on-click #(dispatch [:make-simultaneous week-num num false])}
-            "Ingen samtidigt"]]]])]
+     (if (and (not groups-edit) (= groups [1]))
+       [:div.simultaneous]
+       [:div.simultaneous (when-not groups-edit {:on-click #(do
+                                                              (-> % .-currentTarget (.getElementsByTagName "input") (aget 0) .focus)
+                                                              (dispatch [:begin-group-edit week-num num]))
+                                                 :class "editable"})
+         [:span.sim-groups
+          (for [g groups]
+            [:span.sim-group (str g)])]
+         [:div.editor {:class (when groups-edit "editing")}
+          [:input {:class (when (:error groups-edit) "error")
+                   :type :text :value (:text groups-edit)
+                   :on-change #(dispatch [:update-group-edit (-> % .-target .-value)])}]
+          [:div.help-text "Something terribly helpful"]]])
      [:div.teachers [:input {:type :text :value (str teachers)
                              :on-change #(dispatch [:update-teachers week-num num (-> % .-target .-value)])}]]
      [:div.comment [:input {:type :text :value comment
@@ -159,8 +147,11 @@
   (let [num-weeks (query :num-weeks)
         can-add-weeks (query :can-add-weeks)
         ids (query :week-ids)
-        {:keys [start-week end-week]} (query :start-end-week)]
+        {:keys [start-week end-week]} (query :start-end-week)
+        editing (query :editing-group)]
     [:div.main
+     [:div.cancel-edit (when editing {:class "editing"
+                                      :on-click #(dispatch [:end-group-edit])})]
      [:div.course-duration (str "Kursen pågår i " num-weeks " veckor (Vecka " start-week " - Vecka " end-week ")")]
      [:div.weeks
        (for [[num id] (map vector (range num-weeks) ids)]

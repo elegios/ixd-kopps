@@ -2,6 +2,10 @@
   (:require [re-frame.core :refer [reg-sub subscribe]]
             [com.rpl.specter :refer [ALL MAP-VALS] :refer-macros [select transform traverse]]))
 
+(reg-sub :editing-group
+  (fn [{:keys [editing-group]} _]
+    editing-group))
+
 (reg-sub :selected-course-instance
   (fn [{:keys [selected-course selected-instance courses]} _]
     (get-in courses [selected-course :instances selected-instance])))
@@ -68,9 +72,14 @@
 
 (reg-sub :week-moment
   (fn [_ _]
-    (subscribe [:selected-course-instance]))
-  (fn [instance [_ week-num num]]
-    (let [{:keys [kind] :as moment} (get-in instance [:schedule week-num num])]
+    [(subscribe [:selected-course-instance])
+     (subscribe [:editing-group])])
+  (fn [[instance editing-group] [_ week-num num]]
+    (let [{:keys [kind] :as moment} (get-in instance [:schedule week-num num])
+          moment (if (and (= week-num (:week-num editing-group))
+                          (= num (:num editing-group)))
+                   (assoc moment :groups-edit editing-group)
+                   moment)]
       (->> (:schedule instance)
            (sequence
              (comp (map-indexed

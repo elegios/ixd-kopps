@@ -1,6 +1,7 @@
 (ns ixd-kopps.event
   (:require [re-frame.core :refer [reg-event-db]]
-            [com.rpl.specter :refer [ALL LAST END srange must collect-one] :refer-macros [setval transform]]))
+            [com.rpl.specter :refer [ALL LAST END srange must collect-one] :refer-macros [setval transform]]
+            [clojure.string :as str]))
 
 (def lecture
   {:kind :lecture
@@ -83,6 +84,7 @@
   (fn [db _]
     {:selected-course "DD2628"
      :selected-instance 0
+     :editing-group nil  ; {:week-num int :num int :text string :original [int]}
      :courses {"DD2628" course}}))
 
 (reg-event-db :update-number-of-students
@@ -106,6 +108,7 @@
               duration
               db))))
 
+; BUG: will not do the correct thing if a group editor is open at the same time
 (reg-event-db :update-group-count
   (fn [db [_ week-num num group-count]]
     (let [{:keys [selected-course selected-instance]} db]
@@ -130,23 +133,36 @@
                        :default (setval [END] (repeat num-added 1) prev))))
                  db))))
 
-(reg-event-db :move-group
-  (fn [db [_ week-num num from-idx to-idx]]
-    (let [{:keys [selected-course selected-instance]} db]
-      (transform [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :groups]
-                 (fn [prev]
-                   (if to-idx
-                     (->> prev
-                          (transform [(must from-idx)] dec)
-                          (transform [(must to-idx)] inc)
-                          (filter pos?)
-                          vec)
-                     (->> prev
-                          (transform [(must from-idx)] dec)
-                          (setval [END] [1])
-                          (filter pos?)
-                          vec)))
-                 db))))
+(reg-event-db :begin-group-edit
+  (fn [db [_ week-num num]]
+    (let [{:keys [selected-course selected-instance]} db
+          original (get-in db [:courses selected-course :instances selected-instance :schedule week-num num :groups])]
+      (assoc db :editing-group
+        {:week-num week-num
+         :num num
+         :text (str/join ", " original)
+         :error nil
+         :original original}))))
+
+(reg-event-db :update-group-edit
+  (fn [db [_ new-text]]
+    (let [{:keys [selected-course selected-instance editing-group]} db
+          {:keys [original week-num num]} editing-group
+          groups (seq (map int (re-seq #"\d+" new-text)))
+          _ (js/console.log (str "groups: " groups))
+          error (when-not groups "Hittar inga siffror")
+          groups (or groups original)]
+      (->> db
+           (setval [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :groups]
+                   groups)
+           (setval [:editing-group :text]
+                   new-text)
+           (setval [:editing-group :error]
+                   error)))))
+
+(reg-event-db :end-group-edit
+  (fn [db _]
+    (dissoc db :editing-group)))
 
 (reg-event-db :update-comment
   (fn [db [_ week-num num comment]]

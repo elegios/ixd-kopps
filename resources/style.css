@@ -452,6 +452,22 @@ border: 0px;
 #container {
   font: arial;
 }
+.cancel-edit {
+  z-index: 1;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.cancel-edit.editing {
+  pointer-events: all;
+  opacity: 0.1;
+}
 .weeks {
   margin-left: auto;
   margin-right: auto;
@@ -580,106 +596,54 @@ border: 0px;
 }
 .moment .simultaneous {
   height: 19px;
+  line-height: 19px;
   position: relative;
-  z-index: 1;
+  vertical-align: center;
 }
-.simul-editor {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  left: 0px;
-  top: 0px;
-  background-color: transparent;
+.moment .simultaneous.editable {
+  cursor: pointer;
+}
+.moment .simultaneous .sim-group {
+  border-style: solid;
   border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  transition-property: height, width, left, top, background-color, border-color;
-  transition-duration: 0.2s;
-}
-.simul-editor:hover {
-  width: 200px;
-  height: 200px;
-  left: -80px;
-  top: -80px;
-  border-color: black;
+  border-radius: 20px;
+  border-color: gray;
   background-color: white;
+  padding-right: 3px;
+  padding-left: 3px;
+  margin-right: 2px;
+  margin-left: 2px;
+  font-size: 8pt;
+  font-weight: bold;
 }
-.simul-editor > .summary {
+.simultaneous > .editor {
+  pointer-events: none;
+  z-index: 2;
   position: absolute;
-  width: 100%;
-  opacity: 1;
-  transition: opacity 0.2s;
-}
-.simul-editor > .editor {
-  height: 200px;
-  width: 200px;
-  transform-origin: 0px 0px;
-  transform: scale(0, 0);
+  top: 0%;
+  left: -45px;
+  width: 150px;
   opacity: 0;
-  transition: opacity 0.2s, transform 0.2s;
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  padding-bottom: 8px;
-}
-.simul-editor > .editor > .help-text {
-  font-style: italic;
-  font-size: 9pt;
-  margin-bottom: 5px;
-  color: gray;
-}
-.simul-editor > .editor > .groups-display {
-  display: flex;
-  flex-direction: row;
-  padding: 5px;
-  flex-grow: 1;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
-}
-.simul-editor > .editor > .groups-display > .group-display {
+  background-color: white;
   border-style: solid;
-  border-radius: 5px;
+  border-radius: 0px;
   border-width: 1px;
   padding: 2px;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  transition-property: top, opacity;
+  transition-duration: 0.3s;
+  box-shadow: 1px 1px 2px black;
 }
-.group-display > img {
-  width: 20px;
-  height: 20px;
-  cursor: grab;
-  transition: transform 0.1s;
+.simultaneous > .editor > input.error {
+  background-color: pink;
 }
-.group-display > img:hover {
-  transform: scale(1.1, 1.1);
+.simultaneous > .editor > .help-text {
+  font-style: italic;
+  color: gray;
 }
-.group-display > img:active {
-  cursor: grabbing;
-}
-.simul-editor > .editor > .group-shortcuts {
-  display: flex;
-  justify-content: space-between;
-}
-.simul-editor > .editor > .group-shortcuts > * {
-  flex-basis: 0;
-  white-space: nowrap;
-  background-color: #B0C92B;
-  border-radius: 8px;
-  padding-left: 4px;
-  padding-right: 4px;
-  cursor: pointer;
-  transition: transform 0.1s;
-}
-.simul-editor > .editor > .group-shortcuts > *:hover {
-  transform: scale(1.05, 1.05);
-}
-.simul-editor:hover .editor {
+.simultaneous > .editor.editing {
+  pointer-events: initial;
   opacity: 1;
-  transform: scale(1, 1);
-}
-.simul-editor:hover .summary {
-  opacity: 0;
+  top: 110%;
 }
 .week .teachers {
   flex-grow: 1;
