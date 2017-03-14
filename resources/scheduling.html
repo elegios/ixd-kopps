@@ -48,161 +48,136 @@
         </div>
 
         <div id="content">
+
           <div class="rubrik">
             <p>Schemaplanering</p>
           </div>
-          <div class="statusSchema">
-          <label class="courseStatusSchema" id="status-label"><center id="status-text">Utkast</center></label>
+          <div class="fargadlinje" style="background-color: #fab919; margin-top:20px;"><center><p>Utkast</p></center></div>
+          <div class="beskrivning" style="width:100%">Välj kursomgång</div>
+          <div class="rutaSch" style="padding-bottom: 0px;">
+            <p style="float: left; padding-top:3px; margin-bottom: 0px;">Kursomgång: </p>
+            <select id="selectPeriod" style="margin-left:5px; margin-bottom: 5px;">
+              <option value="volvo">VT17-1</option>
+              <option value="saab">HT16-2</option>
+              <option value="audi">HT15-2</option>
+              <option value="audi">VT15-1</option>
+            </select>
           </div>
-          <br>
-          <label>Kurstillfälle:</label>
-          <select id="selectPeriod" style="margin-bottom: 25px;">
-            <option value="volvo">VT17-1</option>
-            <option value="saab">HT16-2</option>
-            <option value="mercedes">VT16-1</option>
-            <option value="audi">HT15-2</option>
-            <option value="audi">VT15-1</option>
-          </select>
-          <label>Uppskattat antal studenter:</label>
-          <select id="selectPeriod" style="margin-bottom: 25px;">>
-            <option value="volvo">10</option>
-            <option value="saab">20</option>
-            <option value="mercedes">30</option>
-            <option value="audi">40</option>
-            <option value="audi">50</option>
-            <option value="audi">60</option>
-            <option value="audi">70</option>
-            <option value="audi">80</option>
-            <option value="audi">90</option>
-            <option value="audi">100</option>
-            <option value="audi">120</option>
-            <option value="audi">140</option>
-            <option value="audi">160</option>
-            <option value="audi">180</option>
-            <option value="audi">200</option>
-            <option value="audi">220</option>
-            <option value="audi">240</option>
-            <option value="audi">260</option>
-            <option value="audi">280</option>
-            <option value="audi">300</option>
-          </select>
 
-
-
-
-          <p class="subheaderSch">Kursmoment</p>
-          <div style="float: left; width: 360px;">
-            <p>Kopiera schemaupplägg från tidigare kursomgång:</p>
+          <div class="beskrivning" style="width:100%">Övergripande Information</div>
+          <div class="rutaSch">
+            <div class="delruta">
+              <center><p>Uppskattat antal studenter:</p>
+              <select id="selectPeriod" >
+                <option value="volvo">10</option>
+                <option value="saab">20</option>
+                <option value="mercedes">30</option>
+                <option value="audi">40</option>
+                <option value="audi">50</option>
+                <option value="audi">60</option>
+                <option value="audi">70</option>
+                <option value="audi">80</option>
+                <option value="audi">90</option>
+                <option value="audi">100</option>
+                <option value="audi">120</option>
+                <option value="audi">140</option>
+                <option value="audi">160</option>
+                <option value="audi">180</option>
+                <option value="audi">200</option>
+                <option value="audi">220</option>
+                <option value="audi">240</option>
+                <option value="audi">260</option>
+                <option value="audi">280</option>
+                <option value="audi">300</option>
+              </select></center>
+            </div>
+            <div class="delruta">
+              <center><p>Startvecka</p>
+              <input style="margin-bottom:10px; width: 40px; position: center" value="3"></center>
+            </div>
+            <div class="delruta">
+              <center><p>Slutvecka</p>
+              <input style="margin-bottom:10px; width: 40px;" value="14"></center>
+            </div>
+            <div class="delruta">
+              <center><p>Totalt antal veckor</p>
+              <input style="margin-bottom:10px; width: 40px;" value="12"></center>
+            </div>
           </div>
-          <select id="selectPeriod">
-            <option value="volvo">VT17-1</option>
-            <option value="saab">HT16-2</option>
-            <option value="mercedes">VT16-1</option>
-            <option value="audi">HT15-2</option>
-            <option value="audi">VT15-1</option>
-          </select>
+
+          <div class="beskrivning" style="width:100%">Kursmoment</div>
+          <div class="rutaSch" style="padding-bottom: 0px;">
+            <p style="float: left; padding-top:3px; margin-bottom: 0px;">Kopiera schemaupplägg från tidigare kurstillfälle: </p>
+            <select id="selectPeriod" style="margin-left:5px; margin-bottom: 5px;">
+              <option value="volvo">VT17-1</option>
+              <option value="saab">HT16-2</option>
+              <option value="audi">HT15-2</option>
+              <option value="audi">VT15-1</option>
+            </select>
+          </div>
           <br>
           <br>
           <div id="container">
           </div>
+          <div class="beskrivning" style="width:100%">Undervisning gemensam med andra kurser</div>
+          <div class="rutaSch">
+            <div class="delruta">
+            <p>Kurskod</p>
+            <input type="text" name="kurskod">
 
-          <br>
-          <br>
-
-          <p class="subheaderSch">Undervisning gemensam med andra kurser</p>
-          <div class="row">
-            <div class="col-md-12">
-
-              <div class="beskrivningSch">
-                <div style="float: left; width: 80px;">Kurskod
-                </div>
-                <div style="float: left; width: 80px; margin-left: 100px;">Period
-                </div>
-                <div  style="float: left; width: 80px; margin-left: 100px;">Moment
-                </div>
-                <div style="float: left; width: 120px; margin-left: 160px;">Totalt antal studenter
-                </div>
-              </div>
-
-              <div class="rutaSch" style="display:block; float:left; width: 100%; margin-bottom:0px;">
-                <div style="float: left; display:block; float:left; ">
-                  <input type="text" name="kurskod">
-                </div>
-
-                <div style="float: left; width: 120px; margin-left: 105px; ">
-                  <select>
-                    <option></option>
-                    <option value="P1">P1</option>
-                    <option value="P2">P2</option>
-                    <option value="P3">P3</option>
-                    <option value="p4">P4</option>
-                    <option value="pS">PS</option>
-                  </select>
-                </div>
-
-                <div style="float: left; width: 120px; margin-left: 61px; ">
-                  <select>
+            </div>
+            <div class="delruta">
+              <p>Period</p>
+              <select id="selectPeriod" ">
+                <option></option>
+                <option value="P1">P1</option>
+                <option value="P2">P2</option>
+                <option value="P3">P3</option>
+                <option value="p4">P4</option>
+                <option value="pS">PS</option>
+              </select>
+            </div>
+            <div class="delruta">
+              <p>Moment</p>
+                  <select id="selectPeriod">
                     <option value=""></option>
                     <option value="Frl">Föreläsning</option>
                     <option value="Sem">Seminarie</option>
                     <option value="Lab">Laboration</option>
                     <option value="Ovn">Övning</option>
                   </select>
-                </div>
-
-                <div style="float: left; display:block; float:left; margin-left: 125px;">
-                  <input type="text" name="AntalStu">
-                </div>
-
-              </div>
-
+            </div>
+            <div class="delruta">
+              <p>Totalt antal studenter</p>
+              <input type="text" name="kurskod">
             </div>
           </div>
 
 
-          <p class="subheaderSch">Tentamen</p>
+          <div class="beskrivning" style="width:100%">Tentamen</div>
+          <div class="rutaSch">
+            <div class="delruta">
+            <p>Antal studenter</p>
+            <input type="text" name="kurskod">
 
-          <div class="row">
-            <div class="col-md-12">
-
-              <div class="beskrivningSch">
-                <div style="float: left; width: 120px;">Antal studenter
-                </div>
-                <div style="float: left; width: 80px; margin-left: 60px;">Period
-                </div>
-              </div>
-              <div class="rutaSch" style="display:block; float:left; width: 100%; border-radius: 3px;">
-                <div style="float: left; display:block; float:left;">
-                  <input type="text" name="kurskod">
-                </div>
-                <div style="float: left; width: 120px; margin-left: 105px;">
-                  <select>
-                    <option></option>
-                    <option value="P1">P1</option>
-                    <option value="P2">P2</option>
-                    <option value="P3">P3</option>
-                    <option value="p4">P4</option>
-                    <option value="pS">PS</option>
-                  </select>
-                </div>
-
-
-              </div>
-
+            </div>
+            <div class="delruta">
+              <p>Period</p>
+              <select id="selectPeriod" ">
+                <option></option>
+                <option value="P1">P1</option>
+                <option value="P2">P2</option>
+                <option value="P3">P3</option>
+                <option value="p4">P4</option>
+                <option value="pS">PS</option>
+              </select>
             </div>
           </div>
 
-        
-          <p class="subheaderSch">Övrigt</p>
-
+          <div class="beskrivning" style="width:100%">Övriga kommentarer till schemaläggarna</div>
           <div class="row">
             <div class="col-md-12">
-
-              <div class="beskrivningSch">
-                <div style="float: left; width: 250px;">Övriga kommentarer till schemaläggarna
-                </div>
-              </div>
-              <textarea style="width:100%; "></textarea>
+              <textarea placeholder="Skriv här..." style="width:100%; "></textarea>
               <div class="sendButton" id="myBtn"><center>Skicka</center></div>
               <div class="saveButton"><center>Spara</center></div>
 
