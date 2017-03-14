@@ -528,13 +528,14 @@ margin-bottom: 3px;
   width: 200px;
 }
 .course-number {
-  padding: 5px;
-  margin: -5px -5px -5px -5px;
+  padding: 6px 10px 5px 10px;
+  margin: -5px 10px -5px -5px;
   font-size: 14px;
   color: #fff;
   float:left;
   background: #7197d0;
-  font-size: 16px;
+  font-size: 12px;
+  font-family: arial;
 }
 .week > .number {
   text-align: center;
@@ -727,7 +728,7 @@ background:#fafafa;
 .week-header {
 display: flex;
 background-color: #a4b9e1;
-font-size: 12pt;
+font-size: 10pt;
 font-family: georgia;
 padding: 5px;
 cursor: grab;
