@@ -1,941 +1,236 @@
-/* Ram */
-
-body{
-background: #CCCCCC;
-background-repeat: repeat;
-background-position: center center;
-background-attachment: fixed;
-}
-
-#wrapper {
-margin: 20px auto;
-padding: 0px;
-
-width: 1000px;
-background-color: #fff;
-overflow: hidden;
-}
-
-.container-fluid {
-background-color: #CCCCCC
-}
-
-.row {
-margin-bottom: 0px;
-}
-
-#header {
-background: #fff;
-width: 980px;
-height: 100px;
-margin: 0px 0px 0px 0px;
-padding-left: 20px;
-padding-bottom: 20px;
-padding-top: 10px;
-}
-
-/* Sidomenyn */
-
-#side {
-float: left;
-width: 220px;
-margin: 0px 0px 0px 0px;
-padding: 5px 5px 200px 5px;
-margin-top: -10px;
-background: #f9f9f9;
-border-top-width: 0px;
-}
-
-.kursinfo{
-width:200px;
-padding:5px;
-margin-top:-5px;
-margin-left:5px;
-}
-
-.kursinfo kurskod {
-font-family:  Georgia;
-font-size: 24px;
-text-weight: normal;
-color: #000000;
-}
-
-.kursinfo kursnamn {
-font-family:  Arial;
-font-size: 12px;
-color: #000000;
-}
-
-.menu{
-width: 100%;
-overflow: hidden;
-align-content: center;
-}
-
-.menu ul{
-margin-top: 5px;
-padding-left: 0px; /*offset of tabs relative to browser left edge*/
-font: 14px Arial;
-}
-.menu li{
-display: inline;
-
-
-}
-.menu li a{
-float: center; /*Ändra till right om du vill ha flikarna till höger*/
-display: block;
-text-decoration: none;
-padding: 10px;
-padding-bottom: 5px;
-color: Black;
-background: #f2f2f2;
-border-radius: 3px;
-width: 200px;
-margin-bottom:5px;
-}
-.menu li a:hover, .menu li.selected a{
-opacity: 1.0;
-color: #1954a6;
-background: #fff;
-}
-
-.menu li:hover svg path, .menu li.selected svg path{
-fill: #1954a6;
-}
-
-.menu-item-icon-container{
-width: 30px;
-height:30px;
-
-}
-
-/* Content */
-
-#content {
-width: 760px;
-background: #fff;
-float: right;
-padding: 0px;
-margin-right: 20px;
-padding-left: 20px;
-border-left: 0px #cccccc solid;
-}
-
-/* Flikar och blå linje*/
-
-.tabs{
-width: 100%;
-overflow: hidden;
-}
-.tabs ul{
-margin: 0px 0px 0px 250px;
-padding: 0;
-padding-left: 0px; /*offset of tabs relative to browser left edge*/
-font: 14px Georgia;
-}
-.tabs li{
-width: 100px;
-display: inline;
-margin: 10px 10px 10px 10px;
-
-}
-.tabs li a{
-float: left; /*Ändra till right om du vill ha flikarna till höger*/
-display: block;
-text-decoration: none;
-margin: 0px 0px 0px 1px;
-padding: 10px 10px;
-color: white;
-background: #1954a6;
-opacity: 0.8;
-border-radius: 20px 20px 0px 0px;
-width: 180px;
-text-align: center;
-}
-
-.tabs li a:hover, .tabs li.selected a{
-background: #1954a6;
-font-weight: normal;
-opacity: 1;
-}
-
-.line{
-width: 100%;
-height: 30px;
-background-color: #1954a6;
-margin: 0px 0px 10px 0px;
-}
-
-/* Startsida */
-
-#searchDiv {
-background: #f2f2f2;
-height: 100%;
-width: 100%;
-margin-bottom:20px;
-}
-
-#textInput1{
-width: 60px;
-box-sizing: border-box;
-border-radius: 3px;
-border-style: solid;
-border-color: transparent;
-border-width: 1px;
-}
-
-#textPeriod{
-margin-left: 20px;
-}
-
-#selectPeriod{
-background:#fff;
-border: 0px;
-margin-bottom: 5px;
-}
-#searchButton{
-border-radius: 3px;
-}
-
-#searchNewCourse {
-padding: 5px;
-padding-left: 10px;
-padding-right: 10px;
-background-color: #B0C92B;
-border-radius: 10px;
-cursor: pointer;
-width: 50px;
-height: 30px;
-float: right;
-font-style: center
-margin-top:10px;
-}
-
-#textAreaSchedule{
-  width: 80%;
-  border: 1px solid #CCCCCC;
-  border-top: none;
-  border-radius: 0px 0px 10px 10px;
-  margin-left: 70px;
-}
-
-#searchHeader{
-  font-family: Georgia;
-  font-size: 24px;
-  font-weight: normal;
-  padding-bottom:0px;
-  border-bottom: 1px solid #cccccc;
-  width:100%;
-  margin-top:5px;
-}
-
-.myCourses {
-background-color: #f2f2f2;
-height: auto;
-width: 100%;
-margin-bottom:5px;
-}
-
-.myCourse {
-margin-bottom: 5px;
-width: 100%;
-padding:10px;
-font: 14px arial;
-}
-.myCourse:hover {
-  background: #fdfdfd;
-}
-
-.myCourse label:not(.courseStatusGodkand):not(.courseStatusSkickat):not(.courseStatusUtkast) {
-  color: #000;
-  cursor: pointer;
-}
-
-.myCourse:hover label:not(.courseStatusGodkand):not(.courseStatusSkickat):not(.courseStatusUtkast) {
-  background: #fff;
-  color: #1954a6;
-}
-
-label {
-font-weight: normal;
-display: block;
-background:none;
-}
-
-.textKod{
-margin-left: 0px;
-margin-bottom:0px;
-}
-
-.textP{
-width: 400px;
-margin-left: 10px;
-margin-bottom:0px;
-}
-
-.textHP{
-margin-left: 10px;
-width:50px;
-margin-bottom:0px;
-}
-
-.courseStatusUtkast{
-width: 90px;
-float: right;
-background: none;
-padding: 3px;
-border: 1px solid #fab919;
-border-radius: 10px;
-margin: -5px;
-color: #fab919;
-}
-
-.courseStatusSchema{
-    width: 100px;
-    background: none;
-    padding: 5px;
-    border: 2px solid #fab919;
-    border-radius: 10px;
-    margin-top: -42px;
-    float: right;
-    color: #fab919;
-}
-.courseStatusSchemaSkickat{
-width: 90px;
-background: none;
-padding: 5px;
-border: 2px solid #b0c92b;
-border-radius: 10px;
-margin-top: -42px;
-float: right;
-color: #b0c92b;
-}
-
-.courseStatusSkickat{
-width: 90px;
-float: right;
-background: none;
-padding: 3px;
-border: 1px solid #b0c92b;
-border-radius: 10px;
-margin: -5px;
-color: #b0c92b;
-}
-
-.courseStatusGodkand{
-width: 90px;
-float: right;
-background: none;
-padding: 3px;
-border: 1px solid #24a0d8;
-border-radius: 10px;
-margin: -5px;
-color: #24A0D8;
-}
-
-.saveButton{
-width: 100px;
-float: right;
-background: #b9dc48;
-padding: 3px;
-border: 1px solid #b9dc48;
-border-radius: 10px;
-margin-right: 0px;
-margin-bottom: 20px;
-margin-top:10px;
-padding:5px;
-font-weight: bold;
-cursor: pointer;
-transition: background-color 0.1s;
-}
-.saveButton:hover{
-background:#b0c92b;
-border-color: #b0c92b;
-}
-
-.sendButton{
-width: 100px;
-float: right;
-background: #8dc3ed;
-padding: 3px;
-border: 1px solid #8dc3ed;
-border-radius: 10px;
-margin-left: 5px;
-margin-bottom: 20px;
-padding: 5px;
-margin-top: 10px;
-font-weight: bold;
-cursor: pointer;
-}
-
-.sendButton:hover{
-background:#009ede;
-border-color: #009ede;
-}
-
-/* Kursinfo */
-
-.rubrik p{
-font-family:  Georgia;
-font-size: 24px;
-color: #000000;
-background-color: none;
-margin-top: 5px;
-}
-.rubrik {
-  width: 300px;
-}
-.statusSchema{
-  width: 300px;
-  float: left;
-  display: block;
-}
-.underrubrik p{
-font-family:  Georgia;
-font-size: 18px;
-color: #000000;
-background-color: #f2f2f2;
-margin-top: 5px;
-}
-
-.beskrivning{
-width: 350px;
-padding: 0px;
-margin-top: 20px;
-margin-bottom: 0px;
-font-family: Georgia;
-font-size: 16px;
-color: #1954a6;
-background: none;
-border-bottom: 0px solid #d84697; 
-} #
-
-.op p{
-font-family: Arial;
-font-size: 120px
-width: 50%;
-}
-
-.ruta{
-width: 350px;
-padding-top: 0px;
-background: #fff;
-border: 1px solid #fff;
-border-top: none;
-border-radius: 0px 0px 3px 3px;
-}
-
-.ruta p{
-font: 12px Arial;
-padding-top:5px;
-padding-bottom: 5px;
-}
-
-.ruta input{
-border-radius: 3px;
-border-style: solid;
-border-color: #f6e1f0;
-border-width: 1px;
-padding: 5px
-margin-top:2px;
-margin-bottom:3px;
-width:100%;
-background: #f6e1f0 ;
-}
-
-textarea {
-width: 350px;
-height: 140px;
-padding: 5px;
-margin-top:50px;
-margin-bottom:10px;
-border: 1px solid #fafafa;
-background: #fafafa;
-border-top: none;
-border-radius: 3px;
-}
-textarea:focus {
-border: 0px;
-}
-
-}
-
-/* Schemaplanering */
-
-#container {
-  font: arial;
-}
-.cancel-edit {
-  z-index: 1;
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-color: black;
-  opacity: 0;
-  transition: opacity 0.1s;
-}
-.cancel-edit.editing {
-  pointer-events: all;
-  opacity: 0.1;
-}
-.weeks {
-  margin-left: auto;
-  margin-right: auto;
-  width: 740px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  font-size: 10pt;
-}
-.moment{
-margin-bottom: 3px;
-}
-.week .header {
-  display: flex;
-  font-size: 9pt;
-  margin-bottom: 2px;
-}
-.week .header > * {
-  border-radius: 2px;
-  box-sizing: border-box;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 2px;
-}
-.week {
-  display: flex;
-  flex-direction: column;
-  border-style: solid;
-  background: #fafafa;
-  border-color: #fafafa;
-  border-width: 1px;
-  margin-bottom: 15px;
-  transition-property: max-height, margin-bottom, border-width;
-  transition-duration: 0.5s;
-  max-height: 200px;
-}
-.week.minimized {
-  max-height: 0px;
-  margin-bottom: 0px;
-  border-width: 0px;
-  overflow: hidden;
-}
-.week .number {
-  width: 200px;
-}
-.course-number {
-  padding: 6px 10px 5px 10px;
-  margin: -5px 10px -5px -5px;
-  font-size: 14px;
-  color: #fff;
-  float:left;
-  background: #7197d0;
-  font-size: 12px;
-  font-family: arial;
-}
-.week > .number {
-  text-align: center;
-  margin-right: 2px;
-}
-
-.week .week-content{
-background:#fafafa;
-}
-.week > .week-content {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  margin: 5px;
-  margin-left: 10px;
-}
-.week > .week-content > .moment > :not(.actions) {
-  margin-right: 10px;
-  margin-top: 1px;
-}
-.week .header > :not(.actions) {
-  margin-right: 10px;
-}
-.week > .week-content > .moment {
-  display: flex;
-  align-items: center;
-}
-.weeks input[type=number] {
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 3px;
-  border-style: solid;
-  border-color: transparent;
-  border-width: 1px;
-}
-.weeks input[type=text] {
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 3px;
-  border-style: solid;
-  border-color: transparent;
-  border-width: 1px;
-}
-.week .kind-icon {
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
-}
-.moment > .kind-icon {
-  border-radius: 20px;
-  transition: background-color 1s, color 1s;
-  font-size: 8pt;
-  font-weight: bold;
-  text-align: center;
-}
-.moment > .kind-icon.lecture {
-  background-color: #24A0D8;
-}
-.moment > .kind-icon.seminar {
-  background-color: #B0C92B;
-}
-.moment > .kind-icon.exercise {
-  background-color: #D85497;
-}
-.moment > .kind-icon.lab {
-  background-color: #BDBCBC;
-}
-.moment > .kind-icon.exam {
-  background-color: #FAB919;
-}
-.week .kind {
-  width: 78px;
-}
-.week .kind select {
-  background-color: #fff;
-  border:1px solid transparent;
-  height: 23px;
-}
-.week .duration {
-  width: 50px;
-  text-align: center;
-}
-.week .groups {
-  width: 50px;
-  text-align: center;
-}
-.week .simultaneous {
-  width: 60px;
-  text-align: center;
-}
-.moment .simultaneous {
-  height: 19px;
-  line-height: 19px;
-  position: relative;
-  vertical-align: center;
-}
-.moment .simultaneous.editable {
-  cursor: pointer;
-}
-.moment .simultaneous .sim-group {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 20px;
-  border-color: gray;
-  background-color: white;
-  padding-right: 3px;
-  padding-left: 3px;
-  margin-right: 2px;
-  margin-left: 2px;
-  font-size: 8pt;
-  font-weight: bold;
-}
-.simultaneous > .editor {
-  pointer-events: none;
-  z-index: 2;
-  position: absolute;
-  top: 0%;
-  left: -45px;
-  width: 150px;
-  opacity: 0;
-  background-color: white;
-  border-style: solid;
-  border-radius: 0px;
-  border-width: 1px;
-  padding: 2px;
-  transition-property: top, opacity;
-  transition-duration: 0.3s;
-  box-shadow: 1px 1px 2px black;
-}
-.simultaneous > .editor > input.error {
-  background-color: pink;
-}
-.simultaneous > .editor > .help-text {
-  font-style: italic;
-  color: gray;
-}
-.simultaneous > .editor.editing {
-  pointer-events: initial;
-  opacity: 1;
-  top: 110%;
-}
-.week .teachers {
-  flex-grow: 1;
-  flex-basis: 0px;
-}
-.week .comment {
-  flex-grow: 1;
-  flex-basis: 0px;
-}
-.week .own-room {
-  width: 50px;
-  text-align: center;
-}
-.week .own-room input {
-  width: 20px;
-  border: 1px solid transparent;
-}
-.week-content > .moment > .actions {
-  margin-right: 0px;
-}
-.actions {
-  width: 70px;
-  text-align: right;
-  margin-right: 2px;
-}
-.actions > .hovered {
-  opacity: 0;
-  z-index: 1;
-  transition: opacity 0.08s;
-}
-.actions img {
-  height: 17px;
-  margin-left: 2px;
-  transition: transform 0.1s;
-}
-.actions img:not(.disabled):hover {
-  transform: scale(1.1, 1.1);
-}
-.actions img.disabled {
-  cursor: auto;
-  opacity: 0.4;
-}
-.actions img:not(.disabled) {
-  cursor: pointer;
-}
-.moment:hover .actions > .hovered {
-  opacity: 1;
-}
-
-.week-header {
-display: flex;
-background-color: #a4b9e1;
-font-size: 10pt;
-font-family: georgia;
-padding: 5px;
-cursor: grab;
-color: #fff ;
-}
-
-.week-header:active {
-  cursor: grabbing;
-}
-.week-header > .actions {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-.week-header > .actions > button {
-  white-space: nowrap;
-}
-
-option.default {
-  display: none;
-}
-
-.weeks > .summary {
-  margin-top: 15px;
-  background:#fafafa;
-  border: 1px solid transparent;
-  border-radius: 3px;
-}
-.weeks > .summary > .header {
-  margin-right: 0px;
-  display: flex;
-  background-color: #7197d0;
-  font-size: 10pt;
-  font-family: georgia;
-  color:#fff;
-}
-.weeks > .summary > .summary-row {
-  display: flex;
-  padding:2px;
-}
-.weeks > .summary > * > * {
-  flex-grow: 1;
-  flex-basis: 0;
-  padding: 5px;
-}
-.end-of-schedule {
-  display: flex;
-  justify-content: center;
-  background: #fab919; 
-  padding: 2px; 
-  color:#fff; 
-  border-radius: 3px; 
-  border: 1px #fff;"
-}
-.add-new-week {
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #B0C92B;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.beskrivningSch{
-width: 100%;
-padding: 5px;
-margin-bottom: 0px;
-margin-top: 10px;
-font-family: Arial;
-font-size: 12px;
-background: none;
-display:block;
-float:left;
-}
-
-.rutaSch .delruta{
-width: 25%;
-float:left;
-}
-.rutaSch .delruta p{
-font-family: arial;
-font-size: 12px;
-
-}
-
-.fargadlinje{
-width:100%;
-color: #fff;
-border: 1px solid transparent;
-border-radius: 3px;
-padding:3px;
-}
-.fargadlinje p{
-margin-bottom: 0px;
-}
-
-.rutaSch{
-width: 100%;
-padding:5px;
-margin-top: 0px;
-margin-bottom: 20px;
-border: 1px solid transparent;
-background: #fafafa;
-border-radius: 3px;
-float: left;
-}
-
-.rutaSch input{
-width: 70px;
-padding: 2px;
-border: 1px solid #ffffff;
-background: #ffffff;
-border-radius: 3px;
-}
-.rutaSch p{
-font: arial;
-}
-
-.rutaSch select{
-padding: 2px;
-border: 1px solid #fafafa;
-background: #fafafa;
-border-radius: 3px;
-height:25px;
-}
-/* Searchbox */
-
-#myInput {
-height: 26px;
-width: 100%;
-padding: 0 12px 0 25px;
-background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
-border: 1px solid #fff;
-border-radius: 3px;
-margin-bottom: 10px;
-}
-
-#myUL {
-list-style-type: none;
-padding: 0;
-margin: 0;
-display: none;
-border: 1px solid #CCCCCC;
-}
-
-#myInput:focus + #myUL{
-display: block;
-}
-
-#myUL li a {
-border-bottom: 1px solid #ddd; /* Add a border to all links */
-background-color: #f2f2f2; /* Grey background color */
-padding: 10px 10px 10px 10px; /* Add some padding */
-text-decoration: none; /* Remove default text underline */
-font: 14px Arial; /* Increase the font-size */
-color: black; /* Add a black text color */
-display: block; /* Make it into a block element to fill the whole list */
-}
-
-#myUL li a:hover {
-border-bottom-color: #000000;
-}
-
-.subheaderSch {
-margin-bottom: 0px;
-margin-top:30px;
-display: flex;
-font-size: 12pt;
-font-family: georgia;
-}
-
-/* The Modal (background) */
-.modal {
-display: none; /* Hidden by default */
-position: fixed; /* Stay in place */
-z-index: 1; /* Sit on top */
-padding-top: 150px; /* Location of the box */
-left: 0;
-top: 0;
-width: 100%; /* Full width */
-height: 100%; /* Full height */
-overflow: auto; /* Enable scroll if needed */
-background-color: rgb(0,0,0); /* Fallback color */
-background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-box-shadow: none;
-}
-
-/* Modal Content */
-.modal-content {
-background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-margin-top: 100px;
-margin: auto;
-padding-bottom: 40px;
-width: 50%;
-border: 0px;
-}
-
-/* The OK Button */
-.close {
-color: #aaaaaa;
-float: center;
-font-size: 20px;
-font-weight: bold;
-}
-
-.close:hover, .close:focus {
-text-decoration: none;
-cursor: pointer;
-opacity: 1;
-}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>KOPPs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="generator" content="{{ app_url }}" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div id="wrapper">
+        <div id="header">
+          <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Kth_logo.svg/908px-Kth_logo.svg.png" width="100px">
+          </div>
+        </div>
+
+        <div class="tabs">
+          <ul>
+            <li class="selected"><a href="index.html">Kurser</a></li>
+            <li><a href="adressen till sidan">Program</a></li>
+            <li><a href="adressen till sidan">Antagningsomgångar</a></li>
+          </ul>
+        </div>
+
+        <div class ="line">
+        </div>
+
+                <div id="side">
+          <div class="kursinfo">
+
+            <center><kurskod>DH2628</kurskod>
+              <kursnamn></br>Metoder för Interaktionsdesign <br>7,5 hp</kursnamn></center>
+
+          </div>
+          <div class="menu"><center>
+              <ul>
+                <li><a href="kursinfosida.html"><div class="menu-item-icon-container" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--courses" version="1.1" x="0" y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve"><path d="M226.2 259H32.3c-5.9 0-10.8-4.8-10.8-10.8v-43.5H10.8C4.8 204.8 0 199.9 0 194c0-6 4.8-10.8 10.8-10.8h10.8v-21.6H10.8c-5.9 0-10.8-4.8-10.8-10.8s4.8-10.8 10.8-10.8h10.8v-21.6H10.8c-5.9 0-10.8-4.8-10.8-10.8 0-6 4.8-10.8 10.8-10.8h10.8V75.4H10.8C4.8 75.4 0 70.6 0 64.7s4.8-10.8 10.8-10.8h10.8V10.8c0-6 4.8-10.8 10.8-10.8h193.9c5.9 0 10.8 4.8 10.8 10.8v21.6h32.3c5.9 0 10.8 4.8 10.8 10.8v172.4c0 6-4.8 10.8-10.8 10.8H237v21.9C237 254.2 232.2 259 226.2 259zM43.1 237.4h172.4V21.6H43.1v32.3h10.7c5.9 0 10.8 4.8 10.8 10.8s-4.8 10.8-10.8 10.8H43.1V97h10.7c5.9 0 10.8 4.8 10.8 10.8 0 6-4.8 10.8-10.8 10.8H43.1v21.6h10.7c5.9 0 10.8 4.8 10.8 10.8s-4.8 10.8-10.8 10.8H43.1v21.6h10.7c5.9 0 10.8 4.8 10.8 10.8 0 6-4.8 10.8-10.8 10.8H43.1V237.4zM237 204.8h21.5v-21.6H237V204.8zM237 161.7h21.5v-21.6H237V161.7zM237 118.5h21.5V97H237V118.5zM237 75.4h21.5V53.9H237V75.4zM172.2 129.3H96.9c-5.9 0-10.8-4.8-10.8-10.8V64.7c0-6 4.8-10.8 10.8-10.8h75.3c5.9 0 10.8 4.8 10.8 10.8v53.9C183 124.5 178.2 129.3 172.2 129.3zM107.7 107.8h53.8V75.4h-53.8V107.8z"></path></svg>
+                  </svg></div>Kursinformation</a></li>
+                <li class="selected"><a href="scheduling.html"><div class="menu-item-icon-container" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--calendar" version="1.1" x="0" y="0" viewBox="0 0 280 280" enable-background="new 0 0 280 280" xml:space="preserve"><path d="M268.3 280H11.7C5.2 280 0 274.8 0 268.3V35c0-6.4 5.2-11.7 11.7-11.7h35V11.7C46.7 5.2 51.9 0 58.3 0h35C99.8 0 105 5.2 105 11.7v11.7h70V11.7C175 5.2 180.2 0 186.7 0h35c6.4 0 11.7 5.2 11.7 11.7v11.7h35c6.4 0 11.7 5.2 11.7 11.7v233.3C280 274.8 274.8 280 268.3 280zM23.3 256.7h233.3v-210h-23.3v11.7c0 6.4-5.2 11.7-11.7 11.7h-35c-6.4 0-11.7-5.2-11.7-11.7V46.7h-70v11.7c0 6.4-5.2 11.7-11.7 11.7h-35c-6.4 0-11.7-5.2-11.7-11.7V46.7H23.3V256.7zM198.3 46.7H210V23.3h-11.7V46.7zM70 46.7h11.7V23.3H70V46.7zM198.3 245c-6.4 0-11.7-5.2-11.7-11.7v-11.7h-35v11.7c0 6.4-5.2 11.7-11.7 11.7 -6.4 0-11.7-5.2-11.7-11.7v-11.7h-35v11.7c0 6.4-5.2 11.7-11.7 11.7S70 239.8 70 233.3v-11.7H46.7c-6.4 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7H70V175H46.7c-6.4 0-11.7-5.2-11.7-11.7 0-6.4 5.2-11.7 11.7-11.7H70v-23.3H46.7c-6.4 0-11.7-5.2-11.7-11.7S40.2 105 46.7 105H70V93.3c0-6.4 5.2-11.7 11.7-11.7s11.7 5.2 11.7 11.7V105h35V93.3c0-6.4 5.2-11.7 11.7-11.7 6.4 0 11.7 5.2 11.7 11.7V105h35V93.3c0-6.4 5.2-11.7 11.7-11.7 6.4 0 11.7 5.2 11.7 11.7V105h23.3c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7H210v23.3h23.3c6.4 0 11.7 5.2 11.7 11.7 0 6.4-5.2 11.7-11.7 11.7H210v23.3h23.3c6.4 0 11.7 5.2 11.7 11.7s-5.2 11.7-11.7 11.7H210v11.7C210 239.8 204.8 245 198.3 245zM151.7 198.3h35V175h-35V198.3zM93.3 198.3h35V175h-35V198.3zM151.7 151.7h35v-23.3h-35V151.7zM93.3 151.7h35v-23.3h-35V151.7z"></path></svg></div>Schemaplanering</a></li>
+
+                <li><a href="adressen till sidan"><div class="menu-item-icon-container" aria-hidden="true"><svg style="margin-bottom:-10px" xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--groups" viewBox="0 0 200 135"><path d="M134.5 129.4c0-1.1 0-19.8-6.2-31.1-4.5-8.5-16.4-12.4-35-19.2-1.7-.6-3.4-1.1-5.1-1.7v-8.5c5.6-5.1 8.5-12.4 8.5-20.3V29.4C96.6 13 83.6 0 67.2 0S37.9 13 37.9 29.4v19.2c0 7.3 3.4 14.7 8.5 20.3v8.5c-1.7.6-3.4 1.1-5.1 1.7-18.6 6.2-30.5 10.7-35 19.2C0 109.6 0 128.8 0 129.4c0 3.4 2.3 5.6 5.6 5.6h123.7c3.5 0 5.7-2.3 5.2-5.6zm-123.2-5.7c.6-5.6 1.7-14.7 3.4-19.8C17 98.8 30 94.3 43.5 89.8c2.8-1.1 5.6-2.3 9-3.4 2.3-.6 4-2.8 4-5.1V66.7c0-1.7-.6-3.4-1.7-4.5-4-3.4-6.2-8.5-6.2-13.6V29.4c0-10.2 7.9-18.1 18.1-18.1s18.1 7.9 18.1 18.1v19.2c0 5.1-2.3 10.2-6.2 13.6-1.1 1.1-1.7 2.8-1.7 4.5v14.7c0 2.3 1.7 4.5 4 5.1 2.8 1.1 6.2 2.3 9 3.4 13.6 5.1 26.6 9.6 28.8 14.1 2.8 5.1 4 13.6 4.5 19.8H11.3zM196 79.1c-2.8-6.2-11.3-9.6-22.6-13.6l-1.7-.6v-3.4c4.5-4 6.8-9.6 6.8-15.8V35c0-12.4-9.6-22-22-22s-22 10.2-22 22v10.7c0 6.2 2.3 11.9 6.8 15.8V65l-1.7.6c-7.3 2.8-13 4.5-16.9 7.3-1.7 1.1-2.3 2.8-2.3 5.1.6 1.7 1.7 3.4 3.4 4.5 7.9 4 12.4 7.3 14.1 10.7 2.3 4.5 4 10.2 5.1 18.1.6 2.3 2.8 4.5 5.6 4.5h45.8c3.4 0 5.6-2.8 5.6-5.1 0-3.9 0-24.3-4-31.6zm-42.9 25.4c-1.1-6.8-2.8-12.4-5.1-16.9-1.7-4-5.1-6.8-9.6-10.2 1.7-1.1 3.4-1.7 5.1-2.3l5.6-2.3c1.7-.6 3.4-2.8 3.4-5.1v-9.6c0-1.7-.6-3.4-2.3-4.5-2.8-1.7-4.5-5.1-4.5-8.5V34.5c0-6.2 4.5-10.7 10.7-10.7s10.7 5.1 10.7 10.7v10.7c0 3.4-1.7 6.2-4.5 8.5-1.1 1.1-2.3 2.8-2.3 4.5v10.2c0 2.3 1.1 4.5 3.4 5.1l5.6 2.3c6.8 2.3 15.3 5.6 16.4 7.9 1.7 2.8 2.8 12.4 2.8 20.9h-35.4z"></path></svg></div>Lärare</a></li>
+              </ul></center>
+          </div>
+        </div>
+
+        <div id="content">
+
+          <div class="rubrik">
+            <p>Schemaplanering</p>
+          </div>
+          <div class="fargadlinje" style="background-color: #fab919; margin-top:20px;"><center><p>Utkast</p></center></div>
+          <div class="beskrivning" style="width:100%">Välj kursomgång</div>
+          <div class="rutaSch" style="padding-bottom: 0px;">
+            <p style="float: left; padding-top:3px; margin-bottom: 0px;">Kursomgång: </p>
+            <select id="selectPeriod" style="margin-left:5px; margin-bottom: 5px;">
+              <option value="volvo">VT17-1</option>
+              <option value="saab">HT16-2</option>
+              <option value="audi">HT15-2</option>
+              <option value="audi">VT15-1</option>
+            </select>
+          </div>
+
+          <div class="beskrivning" style="width:100%">Övergripande Information</div>
+          <div class="rutaSch">
+            <div class="delruta">
+              <p>Uppskattat antal studenter:</p>
+              <select id="selectPeriod" >
+                <option value="volvo">10</option>
+                <option value="saab">20</option>
+                <option value="mercedes">30</option>
+                <option value="audi">40</option>
+                <option value="audi">50</option>
+                <option value="audi">60</option>
+                <option value="audi">70</option>
+                <option value="audi">80</option>
+                <option value="audi">90</option>
+                <option value="audi">100</option>
+                <option value="audi">120</option>
+                <option value="audi">140</option>
+                <option value="audi">160</option>
+                <option value="audi">180</option>
+                <option value="audi">200</option>
+                <option value="audi">220</option>
+                <option value="audi">240</option>
+                <option value="audi">260</option>
+                <option value="audi">280</option>
+                <option value="audi">300</option>
+              </select>
+            </div>
+            <div class="delruta">
+              <p>Startvecka</p>
+              <input style="margin-bottom:10px; width: 40px; position: center" value="3">
+            </div>
+            <div class="delruta">
+              <p>Slutvecka</p>
+              <input style="margin-bottom:10px; width: 40px;" value="14">
+            </div>
+            <div class="delruta">
+              <p>Totalt antal veckor</p>
+              <input style="margin-bottom:10px; width: 40px;" value="12">
+            </div>
+          </div>
+
+          <div class="beskrivning" style="width:100%">Kursmoment</div>
+          <div class="rutaSch" style="padding-bottom: 0px;">
+            <p style="float: left; padding-top:3px; margin-bottom: 0px;">Kopiera schemaupplägg från tidigare kurstillfälle: </p>
+            <select id="selectPeriod" style="margin-left:5px; margin-bottom: 5px;">
+              <option value="volvo">VT17-1</option>
+              <option value="saab">HT16-2</option>
+              <option value="audi">HT15-2</option>
+              <option value="audi">VT15-1</option>
+            </select>
+          </div>
+          <br>
+          <br>
+          <div id="container">
+          </div>
+          <div class="beskrivning" style="width:100%">Undervisning gemensam med andra kurser</div>
+          <div class="rutaSch">
+            <div class="delruta">
+            <p>Kurskod</p>
+            <input type="text" name="kurskod">
+
+            </div>
+            <div class="delruta">
+              <p>Period</p>
+              <select id="selectPeriod" ">
+                <option></option>
+                <option value="P1">P1</option>
+                <option value="P2">P2</option>
+                <option value="P3">P3</option>
+                <option value="p4">P4</option>
+                <option value="pS">PS</option>
+              </select>
+            </div>
+            <div class="delruta">
+              <p>Moment</p>
+                  <select id="selectPeriod">
+                    <option value=""></option>
+                    <option value="Frl">Föreläsning</option>
+                    <option value="Sem">Seminarie</option>
+                    <option value="Lab">Laboration</option>
+                    <option value="Ovn">Övning</option>
+                  </select>
+            </div>
+            <div class="delruta">
+              <p>Totalt antal studenter</p>
+              <input type="text" name="kurskod">
+            </div>
+          </div>
+
+
+          <div class="beskrivning" style="width:100%">Tentamen</div>
+          <div class="rutaSch">
+            <div class="delruta">
+            <p>Antal studenter</p>
+            <input type="text" name="kurskod">
+
+            </div>
+            <div class="delruta">
+              <p>Period</p>
+              <select id="selectPeriod" ">
+                <option></option>
+                <option value="P1">P1</option>
+                <option value="P2">P2</option>
+                <option value="P3">P3</option>
+                <option value="p4">P4</option>
+                <option value="pS">PS</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="beskrivning" style="width:100%">Övriga kommentarer till schemaläggarna</div>
+          <div class="row">
+            <div class="col-md-12">
+              <textarea placeholder="Skriv här..." style="width:100%; "></textarea>
+              <div class="sendButton" id="myBtn"><center>Skicka</center></div>
+              <div class="saveButton"><center>Spara</center></div>
+
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <div class="beskrivningSch" style="margin-top: -10px;">
+                    <div style="float: left; width: 100%;">
+                      <p align=center style="margin-top: 10px; margin-bottom:5px; font-size:20px"><center>Skickat till schemaläggarna</center></p>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="rutaSch" style="width:100%; height:90px"><center>Tack! Schemaunderlaget har skickats till schemaläggningen. Planering sker.<br></div>
+                  <center><div class="sendButton close" href="kursinfosida.html" style="margin-top:-45px; margin-right:310px"><center>Ok</center></div></center>
+                </div>
+
+              </div>
+
+              <script>
+
+              var modal = document.getElementById('myModal');
+              var btn = document.getElementById("myBtn");
+
+              var div = document.getElementsByClassName("close")[0];
+              var statusLabel = document.getElementById("status-label");
+              var statusText = document.getElementById("status-text");
+
+              btn.onclick = function() {
+                  modal.style.display = "block";
+                  statusLabel.className = "courseStatusSchemaSkickat";
+                  statusText.innerHTML = "Skickat";
+              }
+              div.onclick = function() {
+                  modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                  if (event.target == modal) {
+                      modal.style.display = "none";
+                      //window.location.href = "localhost:3000/kursinfosida.html";
+                  }
+              }
+              </script>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
