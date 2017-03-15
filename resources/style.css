@@ -15,7 +15,7 @@ background-color: #fafafa;
 overflow: hidden;
 }
 
- #wrapper:after {
+#wrapper:after {
 content: ”.”;
 display: block;
 height: 0;
@@ -33,7 +33,7 @@ margin-bottom: 0px;
 
 #header {
 background: #fff;
-width: 980px;
+width: 1000px;
 height: 100px;
 margin: 0px 0px 0px 0px;
 padding-left: 20px;
@@ -42,9 +42,8 @@ padding-top: 10px;
 }
 
 .logo{
-margin-left: 40px;
+margin-left: 45px;
 }
-
 /* Sidomenyn */
 
 #side {
@@ -60,7 +59,7 @@ border-top-width: 0px;
 .kursinfo{
 padding:5px;
 margin-top:-5px;
-background: #fff;
+background: none;
 border: 1px solid transparent;
 border-radius: 3px;
 }
@@ -97,14 +96,14 @@ text-decoration: none;
 padding: 10px;
 padding-bottom: 5px;
 color: #000;
-background: #fff;
+background: none;
 border-radius: 3px;
 margin-bottom:5px;
 }
 .menu li a:hover, .menu li.selected a{
 opacity: 1.0;
 color: #1954a6;
-background: #fff;
+background: none;
 }
 
 .menu li:hover svg path, .menu li.selected svg path{
