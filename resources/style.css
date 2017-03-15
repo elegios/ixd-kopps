@@ -677,6 +677,7 @@ background:none;
   top: 0%;
   left: -70px;
   width: 200px;
+  height: 200px;
   opacity: 0;
   background-color: #fafafa;
   border-style: solid;
@@ -686,6 +687,43 @@ background:none;
   transition-property: top, opacity;
   transition-duration: 0.3s;
   box-shadow: 1px 1px 2px black;
+  display: flex;
+  flex-direction: column;
+}
+.simultaneous > .editor > .groups-display {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-grow: 1;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 4px;
+}
+.simultaneous > .editor > .groups-display > .group-display {
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 1px;
+  background-color: white;
+}
+.group-display > img {
+  width: 18px;
+  cursor: grab;
+  transition: transform 0.1s;
+  margin: 1px;
+}
+.group-display > img:hover {
+  transform: scale(1.1, 1.1);
+}
+.group-display > img:active {
+  cursor: grabbing;
+}
+.simultaneous > .editor > input {
+  margin: 2px;
+  margin-top: 0px;
+  width: initial;
 }
 .simultaneous > .editor > input.error {
   background-color: pink;

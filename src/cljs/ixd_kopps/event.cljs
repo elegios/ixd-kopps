@@ -1,6 +1,6 @@
 (ns ixd-kopps.event
-  (:require [re-frame.core :refer [reg-event-db]]
-            [com.rpl.specter :refer [ALL LAST END srange must collect-one] :refer-macros [setval transform]]
+  (:require [re-frame.core :refer [reg-event-db reg-event-fx]]
+            [com.rpl.specter :refer [ALL LAST END srange must collect-one] :refer-macros [setval transform path]]
             [clojure.string :as str]))
 
 (def lecture
@@ -159,6 +159,27 @@
                    new-text)
            (setval [:editing-group :error]
                    error)))))
+
+(reg-event-db :move-group
+  (fn [db [_ week-num num from-idx to-idx]]
+    (let [{:keys [selected-course selected-instance]} db
+          group-path (path [:courses (must selected-course) :instances (must selected-instance) :schedule (must week-num) (must num) :groups])]
+      (->> db
+           (transform [group-path]
+                      (fn [prev]
+                        (if to-idx
+                          (->> prev
+                               (transform [(must from-idx)] dec)
+                               (transform [(must to-idx)] inc)
+                               (filter pos?)
+                               vec)
+                          (->> prev
+                               (transform [(must from-idx)] dec)
+                               (setval [END] [1])
+                               (filter pos?)
+                               vec))))
+           (transform [(collect-one group-path) :editing-group :text]
+                      (fn [groups _] (str/join ", " groups)))))))
 
 (reg-event-db :end-group-edit
   (fn [db _]

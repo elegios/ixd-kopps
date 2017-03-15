@@ -40,10 +40,25 @@
           (for [g groups]
             [:span.sim-group (str g)])]
          [:div.editor {:class (when groups-edit "editing")}
+          [:div.help-text "Dra grupper tillsammans för att de ska schemaläggas samtidigt..."]
+          [:div.groups-display {:on-drag-over #(.preventDefault %)
+                                :on-drop (fn [e]
+                                           (.preventDefault e)
+                                           (.stopPropagation e)
+                                           (dispatch [:move-group week-num num (-> e .-dataTransfer (.getData "origin-group") int) nil]))}
+           (for [[i group] (zipmap (range) groups)]
+             [:div.group-display {:on-drag-over #(.preventDefault %)
+                                  :on-drop (fn [e]
+                                             (.preventDefault e)
+                                             (.stopPropagation e)
+                                             (dispatch [:move-group week-num num (-> e .-dataTransfer (.getData "origin-group") int) i]))}
+              (repeat group [:img {:src "img/group.svg"
+                                   :draggable true
+                                   :on-drag-start #(-> % .-dataTransfer (.setData "origin-group" i))}])])]
+          [:div.help-text "...eller skriv här:"]
           [:input {:class (when (:error groups-edit) "error")
                    :type :text :value (:text groups-edit)
-                   :on-change #(dispatch [:update-group-edit (-> % .-target .-value)])}]
-          [:div.help-text "Ange vilka grupper som ska schemaläggas samtidigt. \"2, 1\" betyder två grupper samtidigt och en grupp vid ett annat tillfälle."]]])
+                   :on-change #(dispatch [:update-group-edit (-> % .-target .-value)])}]]])
      [:div.teachers [:input {:type :text :value (str teachers)
                              :on-change #(dispatch [:update-teachers week-num num (-> % .-target .-value)])}]]
      [:div.comment [:input {:type :text :value comment
