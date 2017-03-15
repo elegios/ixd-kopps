@@ -601,9 +601,9 @@ background:none;
   border-width: 1px;
 }
 .week .kind-icon {
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
+  width: 17px;
+  height: 17px;
+  line-height: 16px;
 }
 .moment > .kind-icon {
   border-radius: 20px;
@@ -611,6 +611,7 @@ background:none;
   font-size: 8pt;
   font-weight: bold;
   text-align: center;
+  color: white;
 }
 .moment > .kind-icon.lecture {
   background-color: #24A0D8;
@@ -674,10 +675,10 @@ background:none;
   z-index: 2;
   position: absolute;
   top: 0%;
-  left: -45px;
-  width: 150px;
+  left: -70px;
+  width: 200px;
   opacity: 0;
-  background-color: white;
+  background-color: #fafafa;
   border-style: solid;
   border-radius: 0px;
   border-width: 1px;
@@ -691,6 +692,7 @@ background:none;
 }
 .simultaneous > .editor > .help-text {
   font-style: italic;
+  font-size: 9pt;
   color: gray;
 }
 .simultaneous > .editor.editing {
@@ -775,7 +777,6 @@ option.default {
 }
 
 .weeks > .summary {
-  margin-top: 15px;
   background:#fafafa;
   border: 1px solid transparent;
   border-radius: 3px;
@@ -792,6 +793,11 @@ option.default {
   display: flex;
   padding:2px;
 }
+.weeks > .summary > .summary-row:last-of-type {
+  border-top-style: solid;
+  border-color: #BBB;
+  border-width: 1px;
+}
 .weeks > .summary > * > * {
   flex-grow: 1;
   flex-basis: 0;
@@ -800,8 +806,10 @@ option.default {
 .end-of-schedule {
   display: flex;
   justify-content: center;
+  padding: 2px;
+}
+.end-of-schedule:not(.can-add) {
   background: #fab919; 
-  padding: 2px; 
   color:#fff; 
   border-radius: 3px; 
   border: 1px #fff;"

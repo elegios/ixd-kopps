@@ -43,7 +43,7 @@
           [:input {:class (when (:error groups-edit) "error")
                    :type :text :value (:text groups-edit)
                    :on-change #(dispatch [:update-group-edit (-> % .-target .-value)])}]
-          [:div.help-text "Something terribly helpful"]]])
+          [:div.help-text "Ange vilka grupper som ska schemaläggas samtidigt. \"2, 1\" betyder två grupper samtidigt och en grupp vid ett annat tillfälle."]]])
      [:div.teachers [:input {:type :text :value (str teachers)
                              :on-change #(dispatch [:update-teachers week-num num (-> % .-target .-value)])}]]
      [:div.comment [:input {:type :text :value comment
@@ -155,9 +155,10 @@
      [:div.weeks
        (for [[num id] (map vector (range num-weeks) ids)]
          ^{:key id} [week num])
-       [:div.end-of-schedule
+       [:div.end-of-schedule {:class (when can-add-weeks "can-add")}
          (if can-add-weeks
            [:div.add-new-week {:on-click #(dispatch [:new-week-at num-weeks])}
             "Lägg till ny vecka"]
            [:div.info-text "Kursen är slut här!"])]
+       [:div.beskrivning "Sammanfattning"]
        [summary]]]))
