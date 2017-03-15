@@ -10,10 +10,17 @@ background-attachment: fixed;
 #wrapper {
 margin: 20px auto;
 padding: 0px;
-
 width: 1000px;
-background-color: #fff;
+background-color: #fafafa;
 overflow: hidden;
+}
+
+ #wrapper:after {
+content: ”.”;
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
 }
 
 .container-fluid {
@@ -34,23 +41,28 @@ padding-bottom: 20px;
 padding-top: 10px;
 }
 
+.logo{
+margin-left: 40px;
+}
+
 /* Sidomenyn */
 
 #side {
 float: left;
-width: 220px;
+width: 240px;
 margin: 0px 0px 0px 0px;
-padding: 5px 5px 200px 5px;
+padding: 15px 20px 200px 20px;
 margin-top: -10px;
 background: #f9f9f9;
 border-top-width: 0px;
 }
 
 .kursinfo{
-width:200px;
 padding:5px;
 margin-top:-5px;
-margin-left:5px;
+background: #fff;
+border: 1px solid transparent;
+border-radius: 3px;
 }
 
 .kursinfo kurskod {
@@ -66,18 +78,14 @@ font-size: 12px;
 color: #000000;
 }
 
-.menu{
-width: 100%;
-overflow: hidden;
-align-content: center;
-}
-
 .menu ul{
+width:100%;
 margin-top: 5px;
 padding-left: 0px; /*offset of tabs relative to browser left edge*/
 font: 14px Arial;
 }
 .menu li{
+width:100%;
 display: inline;
 
 
@@ -88,10 +96,9 @@ display: block;
 text-decoration: none;
 padding: 10px;
 padding-bottom: 5px;
-color: Black;
-background: #f2f2f2;
+color: #000;
+background: #fff;
 border-radius: 3px;
-width: 200px;
 margin-bottom:5px;
 }
 .menu li a:hover, .menu li.selected a{
@@ -107,6 +114,8 @@ fill: #1954a6;
 .menu-item-icon-container{
 width: 30px;
 height:30px;
+margin: 0px;
+padding: 0px;
 
 }
 
@@ -116,9 +125,10 @@ height:30px;
 width: 760px;
 background: #fff;
 float: right;
-padding: 0px;
-margin-right: 20px;
+padding-right: 20px;
 padding-left: 20px;
+padding-top:10px;
+margin-top: -10px;
 border-left: 0px #cccccc solid;
 }
 
@@ -127,6 +137,7 @@ border-left: 0px #cccccc solid;
 .tabs{
 width: 100%;
 overflow: hidden;
+background: #fff;
 }
 .tabs ul{
 margin: 0px 0px 0px 250px;
@@ -230,11 +241,13 @@ margin-top:10px;
   margin-top:5px;
 }
 
-.myCourses {
-background-color: #f2f2f2;
+.myCourse {
+background-color: #fafafa;
 height: auto;
 width: 100%;
 margin-bottom:5px;
+border: 1px solid transparent;
+border-radius: 3px;
 }
 
 .myCourse {
