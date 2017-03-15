@@ -35,7 +35,8 @@
        [:div.simultaneous (when-not groups-edit {:on-click #(do
                                                               (-> % .-currentTarget (.getElementsByTagName "input") (aget 0) .focus)
                                                               (dispatch [:begin-group-edit week-num num]))
-                                                 :class "editable"})
+                                                 :class "editable"
+                                                 :title "Ändra vilka grupper som schemaläggs samtidigt"})
          [:span.sim-groups
           (for [g groups]
             [:span.sim-group (str g)])]

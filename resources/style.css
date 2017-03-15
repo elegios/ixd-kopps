@@ -656,6 +656,10 @@ background:none;
 }
 .moment .simultaneous.editable {
   cursor: pointer;
+  transition: transform 0.1s;
+}
+.moment .simultaneous.editable:hover {
+  transform: scale(1.1, 1.1);
 }
 .moment .simultaneous .sim-group {
   border-style: solid;
