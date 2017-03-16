@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	 <title>KOPPs</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	 <meta name="generator" content="{{ app_url }}" />
+	 <link rel="stylesheet" href="style.css" type="text/css" />
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	 <script>
+		function myFunction() {
+    		var input, filter, ul, li, a, i;
+		    input = document.getElementById('myInput');
+		    filter = input.value.toUpperCase();
+		    ul = document.getElementById("myUL");
+		    li = ul.getElementsByTagName('li');
+
+		    for (i = 0; i < li.length; i++) {
+		        a = li[i].getElementsByTagName("a")[0];
+		        if (filter && a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		            li[i].style.display = "";
+		        } else {
+		            li[i].style.display = "none";
+		        }
+		    }
+		}
+	</script>
+
+ </head>
+
+<body>
+	<div class="container-fluid">
+
+		<div id="wrapper">
+
+		 <div id="header">
+			 <div class="logo">
+			 	<img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Kth_logo.svg/908px-Kth_logo.svg.png" width="100px">
+			 </div>
+		 </div>
+
+		 <div class="tabs">
+			 <ul>
+				 <li class="selected"><a href="index.html">Kurser</a></li>
+				 <li><a href="adressen till sidan">Program</a></li>
+				 <li><a href="adressen till sidan">Antagningsomgångar</a></li>
+			 </ul>
+		 </div>
+
+		 <div class ="line">
+		 </div>
+
+		 <div id="side">
+		 </div>
+
+
+		 <div id="content">
+		 	<p id="searchHeader">Sök</p>
+
+			 <div id="searchDiv">
+			 	<section class="main">
+	 				<form class="search" method="post" action="index.html" >
+						<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Sök efter kurskod eller namn...">
+
+						<ul id="myUL">
+							<li style="display:none;"><a href="#"><b>DD1320</b> Tillämpad datalogi</a></li>
+							<li style="display:none;"><a href="#"><b>AK2203</b> Media mellan teknik och kultur</a></a></li>
+							<li style="display:none;"><a href="#"><b>MF1035</b> Elektroteknik, media </a></a></li>
+							<li style="display:none;"><a href="#"><b>DH1609</b> Kommunikation och information </a></a></li>
+							<li style="display:none;"><a href="#"><b>DM2531</b> Grafisk produktion</a></a></li>
+							<li style="display:none;"><a href="#"><b>DM2711</b> Forskningsmetodik för interaktiv medieteknik </a></a></li>
+							<li style="display:none;"><a href="kursinfosida.html"><b>DH2628</b> Metoder för interaktionsdesign</a></a></li>
+							<li style="display:none;"><a href="#"><b>DM1578</b> Programintegrerande kurs i medieteknik</a></li>
+							<li style="display:none;"><a href="#"><b>DH2408</b> Utvärderingsmetoder inom människa-datorinteraktion </a></li>
+							<li style="display:none;"><a href="#"><b>DM2573</b> Hållbarhet och medieteknik </a></li>
+							<li style="display:none;"><a href="#"><b>DM2700</b> Introduktion till interaktiv medieteknik</a></li>
+							<li style="display:none;"><a href="#"><b>DD1334</b> Databasteknik </a></li>
+							<li style="display:none;"><a href="#"><b>DT1175</b> Ljud </a></li>
+							<li style="display:none;"><a href="#"><b>DT1130</b> Spektrala transformer </a></li>
+							<li style="display:none;"><a href="#"><b>SF1901</b> Sannolikhetsteori och statistik I </a></li>
+							<li style="display:none;"><a href="#"><b>DM2529</b> Digital bild för publicering </a></li>
+							<li style="display:none;"><a href="#"><b>ME1003</b> Industriell ekonomi, grundkurs</a></li>
+							<li style="display:none;"><a href="#"><b>DM2517</b> XML för publicering </a></li>
+						</ul>
+					</form>
+				</section>
+			 </div>
+			<br>
+			<p id="searchHeader">Mina kurser</p>
+			<div class="myCourses">
+				 <div class="myCourse">
+					<a href="kursinfosida.html">
+					 	<a href="kursinfosida.html"><label class="textKod">DH2628</label></a>
+					 	<a href="kursinfosida.html"><label class="textP">Metoder för Interaktionsdesign</label></a>
+					 	<a href="kursinfosida.html"><label class="textHP">7,5 hp</label></a>
+					 	<a href="kursinfosida.html"><label class="courseStatusUtkast"><center>Utkast</center></label></a>
+					 </a>
+				 </div>
+				 </a>
+		 	</div>
+			<div class="myCourses">
+				 <div class="myCourse">
+					<a href="kursinfosida.html">
+					 	<a href="kursinfosida.html"><label class="textKod">DH2408</label></a>
+					 	<a href="kursinfosida.html"><label class="textP">Utvärderingsmetoder inom människa-datorinteraktion</label></a>
+					 	<a href="kursinfosida.html"><label class="textHP">6 hp</label></a>
+					 	<a href="kursinfosida.html"><label class="courseStatusSkickat"><center>Skickat</center></label></a>
+					 </a>
+				 </div>
+				 </a>
+		 	</div>
+			<div class="myCourses">
+				 <div class="myCourse">
+					<a href="kursinfosida.html">
+					 	<a href="kursinfosida.html"><label class="textKod">DH2408</label></a>
+					 	<a href="kursinfosida.html"><label class="textP">Utvärderingsmetoder inom människa-datorinteraktion</label></a>
+					 	<a href="kursinfosida.html"><label class="textHP">6 hp</label></a>
+					 	<a href="kursinfosida.html"><label class="courseStatusGodkand"><center>Godkänd</center></label></a>
+					 </a>
+				 </div>
+				 </a>
+		 	</div>
+			<div class=""><br><br><br><br><br><br><br><br><br><br><br><br></div>
+
+		</div>
+	</div>
+
+</body>
+</html>
