@@ -420,7 +420,7 @@ font-family: Georgia;
 font-size: 16px;
 color: #1954a6;
 background: none;
-border-bottom: 0px solid #d84697; 
+border-bottom: 0px solid #d84697;
 } #
 
 .op p{
@@ -714,6 +714,7 @@ background:none;
 }
 .group-display > img {
   width: 18px;
+  cursor: -webkit-grab;
   cursor: grab;
   transition: transform 0.1s;
   margin: 1px;
@@ -722,6 +723,7 @@ background:none;
   transform: scale(1.1, 1.1);
 }
 .group-display > img:active {
+  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 .simultaneous > .editor > input {
@@ -796,6 +798,7 @@ background-color: #a4b9e1;
 font-size: 10pt;
 font-family: georgia;
 padding: 5px;
+cursor: -webkit-grab;
 cursor: grab;
 color: #fff ;
 border: 1px solid transparent;
@@ -803,6 +806,7 @@ border-radius: 3px 3px 0px 0px;
 }
 
 .week-header:active {
+  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 .week-header > .actions {
@@ -851,9 +855,9 @@ option.default {
   padding: 2px;
 }
 .end-of-schedule:not(.can-add) {
-  background: #fab919; 
-  color:#fff; 
-  border-radius: 3px; 
+  background: #fab919;
+  color:#fff;
+  border-radius: 3px;
   border: 1px #fff;"
 }
 .add-new-week {
